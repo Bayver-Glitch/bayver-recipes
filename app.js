@@ -52,12 +52,13 @@ function setupLogin() {
     passwordInput.focus();
 }
 
-function initializeApp() {
-    loadRecipes();
+async function initializeApp() {
+    await loadRecipes();
     loadMenuFromStorage();
     setupEventListeners();
     setupTabs();
     renderFeaturedRecipe();
+    renderRecipes();
 }
 
 // Load recipes from JSON
@@ -97,19 +98,18 @@ async function loadRecipes() {
                 
                 return recipe;
             });
-        renderRecipes();
-        renderCalendar();
     } catch (error) {
         console.error('Failed to load recipes:', error);
         // Show error in the grid
-        document.getElementById('recipes-grid').innerHTML = `
-            <div class="empty-state" style="grid-column: 1/-1;">
-                <h3>Error Loading Recipes</h3>
-                <p>Could not load recipes.json. Make sure you're running this from a web server, not just opening the file.</p>
-                <p><strong>Quick fix:</strong> Use VS Code Live Server extension, or Python server:</p>
-                <code>python -m http.server 8000</code>
-            </div>
-        `;
+        const grid = document.getElementById('recipes-grid');
+        if (grid) {
+            grid.innerHTML = `
+                <div class="empty-state" style="grid-column: 1/-1;">
+                    <h3>Error Loading Recipes</h3>
+                    <p>Could not load recipes.json.</p>
+                </div>
+            `;
+        }
     }
 }
 
