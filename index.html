@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Manager & Meal Planner</title>
+    <title>Bayver Family Recipes</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -18,333 +18,209 @@
                 <button id="login-btn" class="btn-primary">Enter</button>
             </div>
             <p id="login-error" class="login-error" style="display:none;">Incorrect password. Please try again.</p>
-            <p class="login-hint">Forgot the password? Ask Calvin.</p>
         </div>
     </div>
-    
-    <header class="main-header">
-        <div class="header-content">
-            <h1>🍳 Recipe Manager & Meal Planner</h1>
-            <nav class="main-nav">
-                <button class="nav-btn active" data-tab="recipes">Recipes</button>
-                <button class="nav-btn" data-tab="planner">Meal Planner</button>
-                <button class="nav-btn" data-tab="grocery">Grocery List</button>
-            </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <!-- Recipes Tab -->
-        <section id="recipes-tab" class="tab-content active">
-            <div class="filters-section">
-                <h2>Filter Recipes</h2>
-                <div class="filter-grid">
-                    <div class="filter-group">
-                        <label for="filter-favorites">❤️ Favorites</label>
-                        <select id="filter-favorites">
-                            <option value="">All Recipes</option>
-                            <option value="true">Favorites Only</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter-meal">Meals</label>
-                        <select id="filter-meal">
-                            <option value="">All Meals</option>
-                            <option value="beef">Beef</option>
-                            <option value="pork">Pork</option>
-                            <option value="chicken">Chicken</option>
-                            <option value="pasta">Pasta</option>
-                            <option value="casserole">Casserole</option>
-                            <option value="seafood">Seafood</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="soups">Soups</option>
-                            <option value="appetizers">Appetizers</option>
-                            <option value="dessert">Desserts</option>
-                            <option value="sides">Sides</option>
-                            <option value="breads">Breads</option>
-                            <option value="salads">Salads</option>
-                            <option value="sandwiches">Sandwiches</option>
-                            <option value="mexican">Mexican</option>
-                            <option value="italian">Italian</option>
-                            <option value="asian">Asian</option>
-                            <option value="crockpot">Crockpot</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter-cuisine">Cuisine</label>
-                        <select id="filter-cuisine">
-                            <option value="">All Cuisines</option>
-                            <option value="american">American</option>
-                            <option value="german">German</option>
-                            <option value="italian">Italian</option>
-                            <option value="asian">Asian</option>
-                            <option value="mexican">Mexican</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter-search">Search</label>
-                        <input type="text" id="filter-search" placeholder="Search recipes...">
-                    </div>
+    <!-- Main App -->
+    <div id="app-container" style="display:none;">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🍳</span>
+                    <span class="logo-text">Bayver Recipes</span>
                 </div>
-                <div class="filter-actions">
-                    <button id="clear-filters" class="btn-secondary">Clear Filters</button>
-                    <span id="recipe-count" class="recipe-count">Loading...</span>
-                </div>
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-tab="recipes">Recipes</button>
+                    <button class="nav-btn" data-tab="planner">Meal Planner</button>
+                    <button class="nav-btn" data-tab="grocery">Shopping List</button>
+                </nav>
             </div>
+        </header>
 
-            <div class="recipes-grid" id="recipes-grid">
-                <!-- Recipe cards will be inserted here -->
+        <!-- Featured Recipe Section -->
+        <section id="featured-section" class="featured-section">
+            <div class="featured-content">
+                <span class="featured-label">✨ Featured Recipe</span>
+                <div id="featured-recipe" class="featured-recipe">
+                    <!-- Featured recipe loaded dynamically -->
+                </div>
             </div>
         </section>
 
-        <!-- Meal Planner Tab -->
-        <section id="planner-tab" class="tab-content">
-            <div class="planner-header">
-                <h2>Monthly Meal Planner</h2>
-                <div class="planner-actions">
-                    <button id="clear-planner" class="btn-secondary">Clear All</button>
-                    <button id="save-planner" class="btn-primary">Save Plan</button>
-                    <button id="load-planner" class="btn-secondary">Load Plan</button>
+        <!-- Search & Filter Bar -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="filter-search" placeholder="Search recipes...">
                 </div>
-            </div>
-
-            <div class="calendar-section">
-                <div class="calendar-header">
-                    <button id="prev-month" class="month-nav">◀</button>
-                    <h3 id="current-month">February 2026</h3>
-                    <button id="next-month" class="month-nav">▶</button>
-                </div>
-                <div class="calendar-grid" id="calendar-grid">
-                    <!-- Calendar days will be inserted here -->
-                </div>
-            </div>
-
-            <div class="quick-add-section">
-                <h3>Quick Add Recipes</h3>
-                <div class="quick-add-filters">
-                    <select id="quick-meat">
-                        <option value="">All Meat Types</option>
-                        <option value="beef">Beef</option>
-                        <option value="pork">Pork</option>
-                        <option value="chicken">Chicken</option>
-                        <option value="none">None</option>
-                    </select>
-                    <select id="quick-meal">
-                        <option value="">All Meals</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option>
+                <div class="filter-dropdown">
+                    <select id="filter-cuisine">
+                        <option value="">All Cuisines</option>
+                        <option value="american">American</option>
+                        <option value="italian">Italian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="asian">Asian</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="quick-add-list" id="quick-add-list">
-                    <!-- Quick add recipe buttons -->
-                </div>
+                <button id="clear-filters" class="btn-text">Clear</button>
             </div>
+        </section>
 
-            <div class="selected-day-panel" id="selected-day-panel" style="display: none;">
-                <h3>Selected Day: <span id="selected-date"></span></h3>
-                <div class="day-meals">
-                    <div class="meal-slot">
-                        <label>Breakfast</label>
-                        <div class="meal-item" id="slot-breakfast">
-                            <span class="empty">Empty</span>
-                        </div>
-                    </div>
-                    <div class="meal-slot">
-                        <label>Lunch</label>
-                        <div class="meal-item" id="slot-lunch">
-                            <span class="empty">Empty</span>
-                        </div>
-                    </div>
-                    <div class="meal-slot">
-                        <label>Dinner</label>
-                        <div class="meal-item" id="slot-dinner">
-                            <span class="empty">Empty</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="day-actions">
-                    <button id="close-day-panel" class="btn-secondary">Close</button>
-                    <button id="generate-grocery-from-day" class="btn-primary">Add to Grocery List</button>
-                </div>
+        <!-- Recipe Grid -->
+        <main class="container">
+            <div class="section-header">
+                <h2>All Recipes</h2>
+                <span id="recipe-count" class="recipe-count">0 recipes</span>
             </div>
             
-            <div class="print-section">
-                <button id="print-menu" class="btn-primary print-btn">🖨️ Print Monthly Menu</button>
+            <div id="recipes-grid" class="recipes-grid">
+                <!-- Recipes loaded dynamically -->
+            </div>
+        </main>
+
+        <!-- Meal Planner Tab -->
+        <section id="planner-tab" class="tab-content">
+            <div class="container">
+                <div class="planner-header">
+                    <h2>Meal Planner</h2>
+                    <div class="planner-nav">
+                        <button id="prev-month" class="btn-icon">◀</button>
+                        <h3 id="current-month">February 2026</h3>
+                        <button id="next-month" class="btn-icon">▶</button>
+                    </div>
+                </div>
+                
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar loaded dynamically -->
+                </div>
+
+                <div class="print-section">
+                    <button id="print-menu" class="btn-secondary">🖨️ Print Monthly Menu</button>
+                </div>
             </div>
         </section>
 
         <!-- Grocery List Tab -->
         <section id="grocery-tab" class="tab-content">
-            <div class="grocery-header">
-                <h2>Grocery List</h2>
-                <div class="grocery-actions">
-                    <div class="portion-control">
-                        <label for="portion-multiplier">Portion Multiplier:</label>
-                        <input type="number" id="portion-multiplier" value="1" min="0.5" max="10" step="0.5">
-                        <span id="total-cost">Total: $0.00</span>
+            <div class="container">
+                <div class="grocery-header">
+                    <h2>Shopping List</h2>
+                    <div class="grocery-actions">
+                        <button id="generate-grocery-list" class="btn-primary">Generate from Meal Plan</button>
+                        <button id="clear-grocery-list" class="btn-text">Clear</button>
                     </div>
-                    <button id="clear-grocery" class="btn-secondary">Clear List</button>
-                    <button id="export-walmart" class="btn-walmart">Export for Walmart</button>
-                    <button id="print-grocery" class="btn-primary">Print List</button>
                 </div>
-            </div>
-
-            <div class="grocery-sections">
-                <div class="grocery-category">
-                    <h3>🥩 Meat</h3>
-                    <ul id="grocery-meat" class="grocery-list"></ul>
+                
+                <div id="grocery-list" class="grocery-list-container">
+                    <p class="empty-state">Click "Generate from Meal Plan" to create your shopping list.</p>
                 </div>
-                <div class="grocery-category">
-                    <h3>🥛 Dairy</h3>
-                    <ul id="grocery-dairy" class="grocery-list"></ul>
-                </div>
-                <div class="grocery-category">
-                    <h3>🥬 Produce</h3>
-                    <ul id="grocery-produce" class="grocery-list"></ul>
-                </div>
-                <div class="grocery-category">
-                    <h3>🥫 Canned & Packaged</h3>
-                    <ul id="grocery-canned" class="grocery-list"></ul>
-                </div>
-                <div class="grocery-category">
-                    <h3>🌾 Pantry</h3>
-                    <ul id="grocery-pantry" class="grocery-list"></ul>
-                </div>
-                <div class="grocery-category">
-                    <h3>🧂 Spices & Seasonings</h3>
-                    <ul id="grocery-spices" class="grocery-list"></ul>
-                </div>
-            </div>
-
-            <div class="grocery-notes">
-                <h3>Additional Notes</h3>
-                <textarea id="grocery-notes" placeholder="Add any additional items or notes here..."></textarea>
             </div>
         </section>
-    </main>
+    </div>
 
-    <!-- Recipe Modal -->
+    <!-- Recipe Detail Modal -->
     <div id="recipe-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <button class="close-modal">×</button>
             <div class="recipe-detail">
-                <div class="recipe-detail-header">
-                    <div class="recipe-image-placeholder" id="modal-image">
-                        <span>📷 Recipe Image</span>
-                    </div>
-                    <div class="recipe-detail-info">
-                        <div class="recipe-title-row">
-                            <h2 id="modal-title">Recipe Title</h2>
-                            <button id="modal-favorite" class="favorite-btn" title="Add to favorites">🤍</button>
-                        </div>
-                        <div class="recipe-tags" id="modal-tags"></div>
-                        <div class="recipe-meta">
-                            <span id="modal-prep">Prep: --</span>
-                            <span id="modal-cook">Cook: --</span>
-                            <span id="modal-servings">Servings: --</span>
-                            <span id="modal-cost">Cost: --</span>
-                            <span id="modal-crockpot" style="display:none;">🍲 Crockpot</span>
-                        </div>
-                        <div class="recipe-actions">
-                            <button id="modal-add-to-menu" class="btn-primary">Add to Menu</button>
-                            <button id="modal-edit" class="btn-secondary">Edit Recipe</button>
-                            <button id="modal-print" class="btn-secondary">Print Recipe</button>
-                        </div>
-                    </div>
+                <div class="recipe-detail-image" id="modal-image">
+                    <span>📷</span>
                 </div>
-                <div class="recipe-detail-body">
-                    <div class="ingredients-section">
-                        <h3>Ingredients</h3>
-                        <ul id="modal-ingredients"></ul>
+                <div class="recipe-detail-content">
+                    <div class="recipe-detail-header">
+                        <h2 id="modal-title">Recipe Title</h2>
+                        <button id="modal-favorite" class="favorite-btn">🤍</button>
                     </div>
-                    <div class="directions-section">
-                        <h3>Directions</h3>
-                        <ol id="modal-directions"></ol>
+                    <div class="recipe-tags" id="modal-tags"></div>
+                    <div class="recipe-meta" id="modal-meta"></div>
+                    
+                    <div class="recipe-sections">
+                        <div class="recipe-section">
+                            <h3>Ingredients</h3>
+                            <ul id="modal-ingredients"></ul>
+                        </div>
+                        <div class="recipe-section">
+                            <h3>Directions</h3>
+                            <ol id="modal-directions"></ol>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-actions">
+                        <button id="modal-add-to-menu" class="btn-primary">Add to Meal Plan</button>
+                        <button id="modal-edit" class="btn-secondary">Edit Recipe</button>
+                        <button id="modal-print" class="btn-secondary">Print</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Edit Recipe Modal -->
     <div id="edit-modal" class="modal">
         <div class="modal-content modal-large">
-            <span class="close-modal">&times;</span>
+            <button class="close-modal">×</button>
             <h2>Edit Recipe</h2>
             <div class="edit-form">
                 <div class="form-group">
-                    <label>Recipe Name:</label>
+                    <label>Recipe Name</label>
                     <input type="text" id="edit-name">
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Prep Time:</label>
+                        <label>Prep Time</label>
                         <input type="text" id="edit-prep">
                     </div>
                     <div class="form-group">
-                        <label>Cook Time:</label>
+                        <label>Cook Time</label>
                         <input type="text" id="edit-cook">
                     </div>
                     <div class="form-group">
-                        <label>Servings:</label>
+                        <label>Servings</label>
                         <input type="number" id="edit-servings">
                     </div>
-                    <div class="form-group">
-                        <label>Cost ($):</label>
-                        <input type="number" id="edit-cost" step="0.5">
-                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Ingredients (one per line, format: amount name):</label>
-                    <textarea id="edit-ingredients" rows="8"></textarea>
+                    <label>Ingredients (one per line)</label>
+                    <textarea id="edit-ingredients" rows="6"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Directions (one step per line):</label>
-                    <textarea id="edit-directions" rows="8"></textarea>
+                    <label>Directions (one step per line)</label>
+                    <textarea id="edit-directions" rows="6"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Recipe Photo:</label>
+                    <label>Recipe Photo</label>
                     <div class="photo-upload">
                         <input type="file" id="edit-photo" accept="image/*" style="display:none;">
                         <button type="button" id="photo-select-btn" class="btn-secondary">📷 Select Photo</button>
-                        <span id="photo-filename" style="margin-left: 10px; color: #666;"></span>
-                        <p class="photo-hint" style="font-size: 0.85rem; color: #999; margin-top: 5px;">Choose a photo from your device. It will be saved with the recipe.</p>
-                        <div id="photo-preview" style="margin-top: 10px; max-width: 200px; display: none;">
-                            <img id="photo-preview-img" style="max-width: 100%; border-radius: 8px;">
+                        <span id="photo-filename"></span>
+                        <div id="photo-preview" style="display:none;">
+                            <img id="photo-preview-img">
                         </div>
                     </div>
                 </div>
                 <div class="form-actions">
                     <button id="save-edit" class="btn-primary">Save Changes</button>
-                    <button id="cancel-edit" class="btn-secondary">Cancel</button>
+                    <button id="cancel-edit" class="btn-text">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Print View (hidden until print) -->
-    <div id="print-view" style="display:none;">
-        <div class="print-header">
-            <h1>Monthly Meal Plan</h1>
-            <p id="print-date-range"></p>
-        </div>
-        <div id="print-content"></div>
-    </div>
 
-    <!-- Add to Planner Modal -->
+    <!-- Planner Modal -->
     <div id="planner-modal" class="modal">
         <div class="modal-content modal-small">
-            <span class="close-modal">&times;</span>
-            <h3>Add to Meal Planner</h3>
+            <button class="close-modal">×</button>
+            <h3>Add to Meal Plan</h3>
             <div class="planner-form">
                 <div class="form-group">
-                    <label>Select Date:</label>
+                    <label>Select Date</label>
                     <input type="date" id="planner-date">
                 </div>
                 <div class="form-group">
-                    <label>Meal:</label>
+                    <label>Meal</label>
                     <select id="planner-meal">
                         <option value="breakfast">Breakfast</option>
                         <option value="lunch">Lunch</option>
@@ -352,7 +228,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Portions:</label>
+                    <label>Portions</label>
                     <input type="number" id="planner-portions" value="1" min="1" max="10">
                 </div>
                 <button id="confirm-add-to-planner" class="btn-primary">Add to Plan</button>

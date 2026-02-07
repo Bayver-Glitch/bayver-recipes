@@ -55,6 +55,7 @@ function initializeApp() {
     loadMenuFromStorage();
     setupEventListeners();
     setupTabs();
+    renderFeaturedRecipe();
 }
 
 // Load recipes from JSON
@@ -199,6 +200,39 @@ function changeMonth(delta) {
     renderCalendar();
 }
 
+// Render featured recipe
+function renderFeaturedRecipe() {
+    if (recipes.length === 0) return;
+    
+    // Pick a random recipe
+    const randomIndex = Math.floor(Math.random() * recipes.length);
+    const recipe = recipes[randomIndex];
+    
+    const featuredContainer = document.getElementById('featured-recipe');
+    if (!featuredContainer) return;
+    
+    const imageHtml = recipe.image 
+        ? `<div class="featured-image" style="background-image: url('${recipe.image}');"></div>`
+        : `<div class="featured-image" style="background: linear-gradient(135deg, #f5f5f5, #e8e8e8); display: flex; align-items: center; justify-content: center; font-size: 4rem;">📷</div>`;
+    
+    featuredContainer.innerHTML = `
+        ${imageHtml}
+        <div class="featured-info">
+            <h3>${recipe.name}</h3>
+            <div class="featured-meta">${recipe.prep_time || '--'} prep • ${recipe.cook_time || '--'} cook • Serves ${recipe.servings || '--'}</div>
+            <div class="featured-tags">
+                ${recipe.meal_type ? `<span class="tag">${recipe.meal_type}</span>` : ''}
+                ${recipe.cuisine ? `<span class="tag">${recipe.cuisine}</span>` : ''}
+                ${recipe.crockpot ? '<span class="tag" style="background: var(--primary); color: white;">🍲 Crockpot</span>' : ''}
+            </div>
+            <div class="featured-actions">
+                <button class="btn-primary" onclick="openRecipeModal('${recipe.id}')">View Recipe</button>
+                <button class="btn-secondary" onclick="openPlannerModal(recipes.find(r => r.id === '${recipe.id}'))">Add to Plan</button>
+            </div>
+        </div>
+    `;
+}
+
 // Render recipe cards
 function renderRecipes() {
     const mealFilter = document.getElementById('filter-meal')?.value || '';
@@ -230,29 +264,26 @@ function renderRecipes() {
     
     grid.innerHTML = filtered.map(recipe => {
         const imageHtml = recipe.image 
-            ? `<div class="recipe-image" style="background-image: url('${recipe.image}'); background-size: cover; background-position: center; height: 160px;"></div>`
+            ? `<div class="recipe-image" style="background-image: url('${recipe.image}');"></div>`
             : `<div class="recipe-image-placeholder">📷</div>`;
         
-        const favIcon = recipe.isFavorite ? '❤️' : '';
         const crockpotBadge = recipe.crockpot ? '<span class="crockpot-badge">🍲</span>' : '';
         
         return `
         <div class="recipe-card" data-recipe-id="${recipe.id}">
             <button class="delete-btn" data-recipe-id="${recipe.id}" title="Delete recipe">×</button>
-            ${recipe.isFavorite ? '<span class="favorite-icon" style="position:absolute;top:40px;right:8px;font-size:1.2rem;">❤️</span>' : ''}
+            ${recipe.isFavorite ? '<span class="favorite-icon">❤️</span>' : ''}
             ${imageHtml}
             <div class="recipe-content">
                 <div class="recipe-title">${recipe.name} ${crockpotBadge}</div>
                 <div class="recipe-tags">
-                    ${recipe.main_ingredient ? `<span class="tag tag-${recipe.main_ingredient}">${recipe.main_ingredient}</span>` : ''}
-                    <span class="tag tag-${recipe.meal_type}">${recipe.meal_type}</span>
+                    <span class="tag">${recipe.meal_type}</span>
                     <span class="tag">${recipe.cuisine}</span>
                 </div>
                 <div class="recipe-meta">
-                    <span>Prep: ${recipe.prep_time || '--'}</span>
-                    <span>Cook: ${recipe.cook_time || '--'}</span>
+                    <span>${recipe.prep_time || '--'} prep</span>
+                    <span>${recipe.cook_time || '--'} cook</span>
                 </div>
-                <div class="recipe-cost">$${recipe.cost_estimate || '--'} per serving</div>
             </div>
         </div>
     `}).join('');
