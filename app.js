@@ -11,10 +11,11 @@ const SESSION_KEY = 'recipeAccessGranted';
 document.addEventListener('DOMContentLoaded', () => {
     // Check for existing session
     const hasAccess = sessionStorage.getItem(SESSION_KEY) === 'true';
-    
+
     if (hasAccess) {
         // Hide login screen, show app
-        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('app-container').style.display = 'block';
         initializeApp();
     } else {
         // Show login screen
@@ -32,7 +33,8 @@ function setupLogin() {
         if (entered === ACCESS_PASSWORD) {
             // Correct password
             sessionStorage.setItem(SESSION_KEY, 'true');
-            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('app-container').style.display = 'block';
             errorMsg.style.display = 'none';
             initializeApp();
         } else {
