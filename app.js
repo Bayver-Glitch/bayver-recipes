@@ -3,13 +3,59 @@ let recipes = [];
 let currentMenu = {};
 let currentRecipe = null;
 
-// Load data on startup
+// Password protection
+const ACCESS_PASSWORD = 'bayver2026'; // You can change this password
+const SESSION_KEY = 'recipeAccessGranted';
+
+// Check if already logged in
 document.addEventListener('DOMContentLoaded', () => {
+    // Check for existing session
+    const hasAccess = sessionStorage.getItem(SESSION_KEY) === 'true';
+    
+    if (hasAccess) {
+        // Hide login screen, show app
+        document.getElementById('login-screen').classList.add('hidden');
+        initializeApp();
+    } else {
+        // Show login screen
+        setupLogin();
+    }
+});
+
+function setupLogin() {
+    const loginBtn = document.getElementById('login-btn');
+    const passwordInput = document.getElementById('login-password');
+    const errorMsg = document.getElementById('login-error');
+    
+    function attemptLogin() {
+        const entered = passwordInput.value.trim();
+        if (entered === ACCESS_PASSWORD) {
+            // Correct password
+            sessionStorage.setItem(SESSION_KEY, 'true');
+            document.getElementById('login-screen').classList.add('hidden');
+            errorMsg.style.display = 'none';
+            initializeApp();
+        } else {
+            // Wrong password
+            errorMsg.style.display = 'block';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    }
+    
+    loginBtn.addEventListener('click', attemptLogin);
+    passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') attemptLogin();
+    });
+    passwordInput.focus();
+}
+
+function initializeApp() {
     loadRecipes();
     loadMenuFromStorage();
     setupEventListeners();
     setupTabs();
-});
+}
 
 // Load recipes from JSON
 async function loadRecipes() {

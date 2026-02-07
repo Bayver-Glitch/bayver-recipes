@@ -8,6 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <h1>🍳 Bayver Family Recipes</h1>
+            <p class="login-subtitle">Private Recipe Collection</p>
+            <div class="login-form">
+                <input type="password" id="login-password" placeholder="Enter password" autocomplete="off">
+                <button id="login-btn" class="btn-primary">Enter</button>
+            </div>
+            <p id="login-error" class="login-error" style="display:none;">Incorrect password. Please try again.</p>
+            <p class="login-hint">Forgot the password? Ask Calvin.</p>
+        </div>
+    </div>
+    
     <header class="main-header">
         <div class="header-content">
             <h1>🍳 Recipe Manager & Meal Planner</h1>
