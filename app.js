@@ -125,27 +125,21 @@ function setupTabs() {
 // Setup event listeners
 function setupEventListeners() {
     // Filter changes
-    const ingredientFilter = document.getElementById('filter-ingredient');
     const mealFilter = document.getElementById('filter-meal');
     const cuisineFilter = document.getElementById('filter-cuisine');
-    const crockpotFilter = document.getElementById('filter-crockpot');
     const favoritesFilter = document.getElementById('filter-favorites');
     const searchFilter = document.getElementById('filter-search');
     const clearFiltersBtn = document.getElementById('clear-filters');
-    
-    if (ingredientFilter) ingredientFilter.addEventListener('change', renderRecipes);
+
     if (mealFilter) mealFilter.addEventListener('change', renderRecipes);
     if (cuisineFilter) cuisineFilter.addEventListener('change', renderRecipes);
-    if (crockpotFilter) crockpotFilter.addEventListener('change', renderRecipes);
     if (favoritesFilter) favoritesFilter.addEventListener('change', renderRecipes);
     if (searchFilter) searchFilter.addEventListener('input', renderRecipes);
-    
+
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
-            document.getElementById('filter-ingredient').value = '';
             document.getElementById('filter-meal').value = '';
             document.getElementById('filter-cuisine').value = '';
-            document.getElementById('filter-crockpot').value = '';
             document.getElementById('filter-favorites').value = '';
             document.getElementById('filter-search').value = '';
             renderRecipes();
@@ -207,19 +201,14 @@ function changeMonth(delta) {
 
 // Render recipe cards
 function renderRecipes() {
-    const ingredientFilter = document.getElementById('filter-ingredient')?.value || '';
     const mealFilter = document.getElementById('filter-meal')?.value || '';
     const cuisineFilter = document.getElementById('filter-cuisine')?.value || '';
-    const crockpotFilter = document.getElementById('filter-crockpot')?.value || '';
     const favoritesFilter = document.getElementById('filter-favorites')?.value || '';
     const searchFilter = document.getElementById('filter-search')?.value?.toLowerCase() || '';
-    
+
     const filtered = recipes.filter(r => {
-        if (ingredientFilter && r.main_ingredient !== ingredientFilter) return false;
         if (mealFilter && r.meal_type !== mealFilter) return false;
         if (cuisineFilter && r.cuisine !== cuisineFilter) return false;
-        if (crockpotFilter === 'true' && !r.crockpot) return false;
-        if (crockpotFilter === 'false' && r.crockpot) return false;
         if (favoritesFilter === 'true' && !r.isFavorite) return false;
         if (searchFilter && !r.name.toLowerCase().includes(searchFilter)) return false;
         return true;
