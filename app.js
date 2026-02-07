@@ -129,12 +129,14 @@ function setupTabs() {
 function setupEventListeners() {
     // Filter changes
     const mealFilter = document.getElementById('filter-meal');
+    const ingredientFilter = document.getElementById('filter-ingredient');
     const cuisineFilter = document.getElementById('filter-cuisine');
     const favoritesFilter = document.getElementById('filter-favorites');
     const searchFilter = document.getElementById('filter-search');
     const clearFiltersBtn = document.getElementById('clear-filters');
 
     if (mealFilter) mealFilter.addEventListener('change', renderRecipes);
+    if (ingredientFilter) ingredientFilter.addEventListener('change', renderRecipes);
     if (cuisineFilter) cuisineFilter.addEventListener('change', renderRecipes);
     if (favoritesFilter) favoritesFilter.addEventListener('change', renderRecipes);
     if (searchFilter) searchFilter.addEventListener('input', renderRecipes);
@@ -142,6 +144,7 @@ function setupEventListeners() {
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
             document.getElementById('filter-meal').value = '';
+            document.getElementById('filter-ingredient').value = '';
             document.getElementById('filter-cuisine').value = '';
             document.getElementById('filter-favorites').value = '';
             document.getElementById('filter-search').value = '';
@@ -238,12 +241,14 @@ function renderFeaturedRecipe() {
 // Render recipe cards
 function renderRecipes() {
     const mealFilter = document.getElementById('filter-meal')?.value || '';
+    const ingredientFilter = document.getElementById('filter-ingredient')?.value || '';
     const cuisineFilter = document.getElementById('filter-cuisine')?.value || '';
     const favoritesFilter = document.getElementById('filter-favorites')?.value || '';
     const searchFilter = document.getElementById('filter-search')?.value?.toLowerCase() || '';
 
     const filtered = recipes.filter(r => {
         if (mealFilter && r.meal_type !== mealFilter) return false;
+        if (ingredientFilter && r.main_ingredient !== ingredientFilter) return false;
         if (cuisineFilter && r.cuisine !== cuisineFilter) return false;
         if (favoritesFilter === 'true' && !r.isFavorite) return false;
         if (searchFilter && !r.name.toLowerCase().includes(searchFilter)) return false;
@@ -290,24 +295,23 @@ function renderRecipes() {
         </div>
     `}).join('');
     
-    // Add click listeners after rendering
-    grid.querySelectorAll('.recipe-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Don't open modal if delete button was clicked
-            if (e.target.classList.contains('delete-btn')) return;
-            const recipeId = this.getAttribute('data-recipe-id');
-            openRecipeModal(recipeId);
-        });
-    });
-    
-    // Add delete button listeners
-    grid.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    // Use event delegation for clicks
+    grid.onclick = function(e) {
+        // Handle delete button click
+        if (e.target.classList.contains('delete-btn')) {
             e.stopPropagation();
-            const recipeId = this.getAttribute('data-recipe-id');
+            const recipeId = e.target.getAttribute('data-recipe-id');
             deleteRecipe(recipeId);
-        });
-    });
+            return;
+        }
+        
+        // Find the recipe card that was clicked
+        const card = e.target.closest('.recipe-card');
+        if (card) {
+            const recipeId = card.getAttribute('data-recipe-id');
+            openRecipeModal(recipeId);
+        }
+    };
 }
 
 // Delete recipe with confirmation

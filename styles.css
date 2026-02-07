@@ -250,7 +250,7 @@ body {
 }
 
 .search-bar {
-    flex: 1;
+    width: 200px;
     position: relative;
 }
 
