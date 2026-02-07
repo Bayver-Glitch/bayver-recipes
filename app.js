@@ -244,7 +244,6 @@ function renderRecipes() {
             ? `<div class="recipe-image" style="background-image: url('${recipe.image}'); background-size: cover; background-position: center; height: 160px;"></div>`
             : `<div class="recipe-image-placeholder">📷</div>`;
         
-        const stars = '★'.repeat(recipe.rating || 0) + '☆'.repeat(5 - (recipe.rating || 0));
         const favIcon = recipe.isFavorite ? '❤️' : '';
         const crockpotBadge = recipe.crockpot ? '<span class="crockpot-badge">🍲</span>' : '';
         
@@ -265,7 +264,6 @@ function renderRecipes() {
                     <span>Cook: ${recipe.cook_time || '--'}</span>
                 </div>
                 <div class="recipe-cost">$${recipe.cost_estimate || '--'} per serving</div>
-                <div class="star-rating" style="color:#ffc107;">${stars}</div>
             </div>
         </div>
     `}).join('');
@@ -356,16 +354,6 @@ function openRecipeModal(id) {
         ${recipe.crockpot ? '<span class="tag" style="background:#e65100;color:white;">🍲 Crockpot</span>' : ''}
     `;
     
-    // Set star ratings
-    const ratingContainer = document.getElementById('modal-rating');
-    if (ratingContainer) {
-        const stars = ratingContainer.querySelectorAll('.star');
-        stars.forEach((star, index) => {
-            star.classList.toggle('active', index < (recipe.rating || 0));
-            star.onclick = () => setRecipeRating(recipe.id, index + 1);
-        });
-    }
-    
     // Set favorite button
     const favBtn = document.getElementById('modal-favorite');
     if (favBtn) {
@@ -407,27 +395,6 @@ function openRecipeModal(id) {
     }
     
     document.getElementById('recipe-modal').classList.add('active');
-}
-
-// Set recipe rating
-function setRecipeRating(recipeId, rating) {
-    const recipe = recipes.find(r => String(r.id) === String(recipeId));
-    if (!recipe) return;
-    
-    recipe.rating = rating;
-    
-    // Save to localStorage
-    const ratings = JSON.parse(localStorage.getItem('recipeRatings') || '{}');
-    ratings[recipeId] = rating;
-    localStorage.setItem('recipeRatings', JSON.stringify(ratings));
-    
-    // Update UI
-    const stars = document.querySelectorAll('#modal-rating .star');
-    stars.forEach((star, index) => {
-        star.classList.toggle('active', index < rating);
-    });
-    
-    renderRecipes();
 }
 
 // Toggle favorite
@@ -682,6 +649,9 @@ function openEditModal(recipe) {
     // Format directions for textarea
     document.getElementById('edit-directions').value = recipe.directions?.join('\n') || '';
     
+    // Setup photo upload
+    setupPhotoUpload(recipe);
+    
     // Setup save button
     document.getElementById('save-edit').onclick = () => saveRecipeEdit(recipe.id);
     document.getElementById('cancel-edit').onclick = () => {
@@ -691,16 +661,69 @@ function openEditModal(recipe) {
     document.getElementById('edit-modal').classList.add('active');
 }
 
+// Photo upload handling
+let currentPhotoData = null;
+
+function setupPhotoUpload(recipe) {
+    const photoInput = document.getElementById('edit-photo');
+    const photoBtn = document.getElementById('photo-select-btn');
+    const photoFilename = document.getElementById('photo-filename');
+    const photoPreview = document.getElementById('photo-preview');
+    const photoPreviewImg = document.getElementById('photo-preview-img');
+    
+    currentPhotoData = null;
+    
+    // Show current photo if exists
+    if (recipe.image) {
+        photoPreview.style.display = 'block';
+        photoPreviewImg.src = recipe.image;
+        photoFilename.textContent = 'Current photo';
+    } else {
+        photoPreview.style.display = 'none';
+        photoFilename.textContent = '';
+    }
+    
+    // Setup file selection
+    photoBtn.onclick = () => photoInput.click();
+    
+    photoInput.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            alert('Please select an image file');
+            return;
+        }
+        
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Photo must be less than 5MB');
+            return;
+        }
+        
+        // Read file as data URL
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            currentPhotoData = event.target.result;
+            photoPreview.style.display = 'block';
+            photoPreviewImg.src = currentPhotoData;
+            photoFilename.textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+    };
+}
+
 function saveRecipeEdit(recipeId) {
     const recipe = recipes.find(r => String(r.id) === String(recipeId));
     if (!recipe) return;
-    
+
     recipe.name = document.getElementById('edit-name').value;
     recipe.prep_time = document.getElementById('edit-prep').value;
     recipe.cook_time = document.getElementById('edit-cook').value;
     recipe.servings = parseInt(document.getElementById('edit-servings').value) || recipe.servings;
     recipe.cost_estimate = parseFloat(document.getElementById('edit-cost').value) || recipe.cost_estimate;
-    
+
     // Parse ingredients
     const ingText = document.getElementById('edit-ingredients').value;
     recipe.ingredients = ingText.split('\n').filter(line => line.trim()).map(line => {
@@ -709,11 +732,17 @@ function saveRecipeEdit(recipeId) {
         const name = parts.slice(1).join(' ');
         return { amount, name, category: 'other' };
     });
-    
+
     // Parse directions
     const dirText = document.getElementById('edit-directions').value;
     recipe.directions = dirText.split('\n').filter(line => line.trim());
-    
+
+    // Save photo if new one was selected
+    if (currentPhotoData) {
+        recipe.image = currentPhotoData;
+        currentPhotoData = null;
+    }
+
     // Save edits to localStorage
     const edits = JSON.parse(localStorage.getItem('recipeEdits') || '{}');
     edits[recipeId] = {
@@ -723,13 +752,18 @@ function saveRecipeEdit(recipeId) {
         servings: recipe.servings,
         cost_estimate: recipe.cost_estimate,
         ingredients: recipe.ingredients,
-        directions: recipe.directions
+        directions: recipe.directions,
+        image: recipe.image
     };
     localStorage.setItem('recipeEdits', JSON.stringify(edits));
-    
+
+    // Clear file input
+    document.getElementById('edit-photo').value = '';
+    document.getElementById('photo-filename').textContent = '';
+
     document.getElementById('edit-modal').classList.remove('active');
     renderRecipes();
-    
+
     // Reopen recipe modal with updated data
     openRecipeModal(recipeId);
 }

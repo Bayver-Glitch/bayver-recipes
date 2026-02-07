@@ -455,26 +455,6 @@ body {
     filter: drop-shadow(0 0 4px #ff1744);
 }
 
-.recipe-rating {
-    margin: 0.5rem 0;
-}
-
-.star {
-    font-size: 1.5rem;
-    color: #ddd;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.star:hover,
-.star.active {
-    color: #ffc107;
-}
-
-.star:hover ~ .star {
-    color: #ddd;
-}
-
 .recipe-actions {
     display: flex;
     gap: 0.5rem;
@@ -523,6 +503,19 @@ body {
     gap: 1rem;
     margin-top: 1.5rem;
     justify-content: flex-end;
+}
+
+.photo-upload {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.photo-hint {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 5px;
 }
 
 .print-section {
