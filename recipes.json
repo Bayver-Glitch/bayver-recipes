@@ -1,0 +1,561 @@
+[
+  {
+    "id": "best-ever-meat-loaf",
+    "name": "Best Ever Meat Loaf",
+    "prep_time": "20 minutes",
+    "cook_time": "1 hour",
+    "total_time": "1 hour 20 minutes",
+    "servings": 6,
+    "cost_estimate": 13.5,
+    "cost_range": "$12-15",
+    "image": "images/meat-loaf.jpg",
+    "tags": {
+      "main_ingredient": "beef",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "eggs", "amount": "2 large", "category": "dairy"},
+      {"name": "milk", "amount": "⅔ cup", "category": "dairy"},
+      {"name": "salt", "amount": "2 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "¼ tsp ground", "category": "spices"},
+      {"name": "bread", "amount": "3 slices, crumbled", "category": "pantry"},
+      {"name": "ground beef", "amount": "1 ½ pounds", "category": "meat"},
+      {"name": "onion", "amount": "1, chopped", "category": "produce"},
+      {"name": "cheddar cheese", "amount": "1 cup shredded", "category": "dairy"},
+      {"name": "carrot", "amount": "½ cup shredded", "category": "produce"},
+      {"name": "brown sugar", "amount": "¼ cup", "category": "pantry"},
+      {"name": "ketchup", "amount": "¼ cup", "category": "pantry"},
+      {"name": "yellow mustard", "amount": "1 tbsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Preheat oven to 350°F (175°C).",
+      "Mix wet ingredients: Whisk eggs, milk, salt, and ground black pepper in a large bowl. Add crumbled bread and stir until dissolved.",
+      "Combine: Mix ground beef, onion, Cheddar cheese, and carrot into bread mixture.",
+      "Transfer: Put mixture into a 9x5-inch loaf pan.",
+      "Make glaze: Combine brown sugar, ketchup, and mustard in a small bowl; spread over the meat mixture.",
+      "Bake: Bake in the preheated oven until no longer pink in the center, 60 to 75 minutes. An instant-read thermometer inserted into the center should read at least 160°F (70°C)."
+    ],
+    "source": "https://www.allrecipes.com/recipe/229559/best-ever-meat-loaf/"
+  },
+  {
+    "id": "cabbage-rolls",
+    "name": "Cabbage Rolls",
+    "prep_time": "30 minutes",
+    "cook_time": "1.5 hours",
+    "total_time": "2 hours",
+    "servings": 5,
+    "cost_estimate": 14,
+    "cost_range": "$12-16",
+    "image": "images/cabbage-rolls.jpg",
+    "tags": {
+      "main_ingredient": "beef",
+      "meal_type": "dinner",
+      "cuisine": "other",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "green cabbage", "amount": "1 large head", "category": "produce"},
+      {"name": "ground beef", "amount": "1 lb", "category": "meat"},
+      {"name": "cooked rice", "amount": "1 cup", "category": "pantry"},
+      {"name": "onion", "amount": "1 small, finely chopped", "category": "produce"},
+      {"name": "egg", "amount": "1, beaten", "category": "dairy"},
+      {"name": "garlic powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "parsley", "amount": "1 tbsp chopped", "category": "produce"},
+      {"name": "crushed tomatoes", "amount": "1 can (15 oz)", "category": "canned"},
+      {"name": "tomato sauce", "amount": "1 can (8 oz)", "category": "canned"},
+      {"name": "brown sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "Worcestershire sauce", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "lemon juice", "amount": "1 tsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Prepare Cabbage: Bring a large pot of water to a boil. Carefully remove the core from the cabbage and place the whole head in the boiling water. Cook for 5-7 minutes, peeling off leaves with tongs as they soften. Set aside 10-12 large leaves to cool.",
+      "Make Filling: In a large bowl, combine ground beef, cooked rice, onion, egg, garlic powder, salt, pepper, and parsley. Mix until well combined.",
+      "Assemble Rolls: Trim the thick vein from the base of each cabbage leaf for easier rolling. Place about ¼ cup of filling near the base of a leaf. Fold the sides over the filling, then roll tightly from the bottom up. Repeat with remaining leaves and filling.",
+      "Prepare Sauce: In a bowl, mix crushed tomatoes, tomato sauce, brown sugar, Worcestershire sauce, lemon juice, salt, and pepper.",
+      "Bake: Preheat oven to 350°F (175°C). Spread a thin layer of sauce in a 9x13-inch baking dish. Place cabbage rolls seam-side down in the dish. Pour remaining sauce over the rolls. Cover with foil and bake for 1 hour. Remove foil and bake for an additional 15-20 minutes until sauce is bubbling and rolls are fully cooked."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "chicken-taquitos",
+    "name": "Chicken Taquitos",
+    "prep_time": "25 minutes",
+    "cook_time": "20 minutes",
+    "total_time": "45 minutes",
+    "servings": 4,
+    "cost_estimate": 10,
+    "cost_range": "$8-12",
+    "image": "images/chicken-taquitos.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "mexican",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "shredded chicken", "amount": "2 cups cooked", "category": "meat"},
+      {"name": "cream cheese", "amount": "4 oz softened", "category": "dairy"},
+      {"name": "salsa", "amount": "¼ cup", "category": "pantry"},
+      {"name": "lime juice", "amount": "1 tbsp", "category": "produce"},
+      {"name": "cumin", "amount": "1 tsp", "category": "spices"},
+      {"name": "chili powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "½ tsp", "category": "spices"},
+      {"name": "corn tortillas", "amount": "12 small", "category": "pantry"},
+      {"name": "vegetable oil", "amount": "for frying", "category": "pantry"},
+      {"name": "salt", "amount": "to taste", "category": "spices"}
+    ],
+    "directions": [
+      "Mix Filling: In a bowl, combine shredded chicken, cream cheese, salsa, lime juice, cumin, chili powder, and garlic powder until well mixed.",
+      "Warm Tortillas: Heat corn tortillas in a damp paper towel in the microwave for 30 seconds to make them pliable.",
+      "Fill Taquitos: Place about 2 tablespoons of filling on one end of a tortilla. Roll tightly and secure with a toothpick if needed. Repeat with remaining tortillas.",
+      "Fry: Heat about ½ inch of oil in a skillet to 350°F. Fry taquitos seam-side down in batches, turning occasionally, until golden and crispy, about 3-4 minutes total.",
+      "Drain and Serve: Remove to a paper towel-lined plate. Sprinkle with salt while hot. Serve with sour cream, guacamole, and salsa."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "dairy-queen-chicken-basket",
+    "name": "Dairy Queen Chicken Basket",
+    "prep_time": "30 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "45 minutes",
+    "servings": 4,
+    "cost_estimate": 12,
+    "cost_range": "$10-14",
+    "image": "images/dairy-queen-chicken-basket.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "chicken breast strips", "amount": "2 lbs", "category": "meat"},
+      {"name": "buttermilk", "amount": "1 cup", "category": "dairy"},
+      {"name": "egg", "amount": "1 large", "category": "dairy"},
+      {"name": "paprika", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "1 tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "onion powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "all-purpose flour", "amount": "1 cup", "category": "pantry"},
+      {"name": "cornstarch", "amount": "½ cup", "category": "pantry"},
+      {"name": "vegetable oil", "amount": "for frying", "category": "pantry"}
+    ],
+    "directions": [
+      "Marinate: Cut chicken into strips. Whisk together buttermilk, egg, paprika, pepper, garlic powder, onion powder, and salt. Add chicken and marinate for at least 30 minutes (or overnight).",
+      "Prepare Breading: Mix flour and cornstarch in a shallow bowl. Add remaining spices.",
+      "Dredge: Remove chicken from marinade, letting excess drip off. Dredge in flour mixture, pressing to adhere well.",
+      "Fry: Heat oil to 350°F. Fry chicken in batches for 4-5 minutes until golden brown and internal temp reaches 165°F.",
+      "Serve: Drain on paper towels. Serve with fries, Texas toast, and dipping sauce."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "lemon-cookies",
+    "name": "Lemon Cookies",
+    "prep_time": "45 minutes",
+    "cook_time": "12 minutes",
+    "total_time": "1 hour 30 minutes",
+    "servings": 24,
+    "cost_estimate": 8,
+    "cost_range": "$6-10",
+    "image": "images/lemon-cookies.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "dessert",
+      "cuisine": "american",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "2 ¾ cups", "category": "pantry"},
+      {"name": "baking soda", "amount": "1 tsp", "category": "pantry"},
+      {"name": "baking powder", "amount": "½ tsp", "category": "pantry"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "unsalted butter", "amount": "1 cup softened", "category": "dairy"},
+      {"name": "granulated sugar", "amount": "1 ½ cups", "category": "pantry"},
+      {"name": "egg", "amount": "1 large", "category": "dairy"},
+      {"name": "lemon juice", "amount": "2 tbsp fresh", "category": "produce"},
+      {"name": "lemon zest", "amount": "1 tbsp", "category": "produce"},
+      {"name": "vanilla extract", "amount": "1 tsp", "category": "pantry"},
+      {"name": "powdered sugar", "amount": "1 cup", "category": "pantry"}
+    ],
+    "directions": [
+      "Whisk dry ingredients: In a bowl, whisk together flour, baking soda, baking powder, and salt. Set aside.",
+      "Cream butter and sugar: Beat butter and sugar until creamy (2-3 minutes). Add egg, lemon juice, zest, and vanilla; mix until combined.",
+      "Combine: Gradually add dry ingredients, mixing until just combined. Dough will be soft.",
+      "Chill: Cover and chill dough for 1 hour (or up to 2 days).",
+      "Prep: Preheat oven to 350°F (177°C). Line baking sheets with parchment paper.",
+      "Shape: Roll dough into 1-tablespoon balls, roll in sugar (optional), and place 2 inches apart on sheets.",
+      "Bake: Bake 10-12 minutes until edges are lightly golden. Cool 5 minutes on sheet, then transfer to rack.",
+      "Glaze: Whisk powdered sugar and lemon juice until smooth. Drizzle over cooled cookies."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "pancakes",
+    "name": "Pancakes",
+    "prep_time": "10 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "25 minutes",
+    "servings": 8,
+    "cost_estimate": 5,
+    "cost_range": "$4-6",
+    "image": "images/pancakes.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "breakfast",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "1 ½ cups", "category": "pantry"},
+      {"name": "baking powder", "amount": "3 ½ tsp", "category": "pantry"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "milk", "amount": "1 ¼ cups", "category": "dairy"},
+      {"name": "egg", "amount": "1", "category": "dairy"},
+      {"name": "melted butter", "amount": "3 tbsp", "category": "dairy"},
+      {"name": "vanilla extract", "amount": "1 tsp optional", "category": "pantry"}
+    ],
+    "directions": [
+      "Mix Dry Ingredients: In a large bowl, whisk together flour, baking powder, salt, and sugar.",
+      "Combine Wet Ingredients: In a separate bowl, whisk milk, egg, melted butter, and vanilla.",
+      "Combine: Pour wet ingredients into dry. Stir gently until just combined; some lumps are okay. Don't overmix.",
+      "Heat Pan: Preheat a non-stick skillet or griddle over medium heat. Lightly grease with butter or oil.",
+      "Cook: Pour ¼ cup batter per pancake. Cook until bubbles form and edges look set (2-3 minutes). Flip and cook 1-2 more minutes until golden brown.",
+      "Serve: Serve warm with maple syrup and toppings."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "pork-lo-mein",
+    "name": "Pork Lo Mein",
+    "prep_time": "15 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "30 minutes",
+    "servings": 4,
+    "cost_estimate": 12,
+    "cost_range": "$10-14",
+    "image": "images/pork-lo-mein.jpg",
+    "tags": {
+      "main_ingredient": "pork",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "pork tenderloin", "amount": "8 oz thinly sliced", "category": "meat"},
+      {"name": "soy sauce", "amount": "4 tbsp total", "category": "pantry"},
+      {"name": "cornstarch", "amount": "2 tsp total", "category": "pantry"},
+      {"name": "sesame oil", "amount": "2 tbsp total", "category": "pantry"},
+      {"name": "rice wine", "amount": "1 tsp", "category": "pantry"},
+      {"name": "lo mein noodles", "amount": "8 oz", "category": "pasta"},
+      {"name": "vegetable oil", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "onion", "amount": "1 small thinly sliced", "category": "produce"},
+      {"name": "carrot", "amount": "1 medium julienned", "category": "produce"},
+      {"name": "red bell pepper", "amount": "1 thinly sliced", "category": "produce"},
+      {"name": "cabbage", "amount": "2 cups shredded", "category": "produce"},
+      {"name": "green onions", "amount": "3 sliced", "category": "produce"},
+      {"name": "garlic", "amount": "2 cloves minced", "category": "produce"},
+      {"name": "ginger", "amount": "1 tsp grated fresh", "category": "produce"},
+      {"name": "oyster sauce", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "hoisin sauce", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "sugar", "amount": "1 tsp", "category": "pantry"},
+      {"name": "chicken broth", "amount": "¼ cup", "category": "pantry"}
+    ],
+    "directions": [
+      "Marinate Pork: Combine pork with 1 tbsp soy sauce, 1 tsp cornstarch, 1 tsp sesame oil, and rice wine. Let sit 10-15 minutes.",
+      "Make Sauce: Whisk together remaining soy sauce, oyster sauce, hoisin, sesame oil, sugar, broth, and cornstarch.",
+      "Cook Noodles: Boil noodles per package, drain, rinse with cold water, and set aside.",
+      "Cook Pork: Heat 1 tbsp oil in wok over high heat. Cook pork until browned, 2-3 minutes. Remove and set aside.",
+      "Stir-fry Veggies: Add remaining oil. Stir-fry onion, carrot, pepper, and cabbage for 3-4 minutes. Add garlic, ginger, and green onions; cook 1 minute.",
+      "Combine: Return pork to wok. Add noodles and sauce. Toss everything together until heated through and sauce coats noodles."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "potato-salad",
+    "name": "Walmart Deli Original Potato Salad",
+    "prep_time": "30 minutes",
+    "cook_time": "20 minutes",
+    "total_time": "50 minutes",
+    "servings": 8,
+    "cost_estimate": 8,
+    "cost_range": "$6-10",
+    "image": "images/potato-salad.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "lunch",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "russet potatoes", "amount": "2 lbs", "category": "produce"},
+      {"name": "eggs", "amount": "3 large", "category": "dairy"},
+      {"name": "mayonnaise", "amount": "1 cup", "category": "condiments"},
+      {"name": "sweet pickle relish", "amount": "¼ cup", "category": "condiments"},
+      {"name": "celery", "amount": "½ cup finely diced", "category": "produce"},
+      {"name": "onion", "amount": "¼ cup finely diced", "category": "produce"},
+      {"name": "white vinegar", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "celery seed", "amount": "½ tsp", "category": "spices"},
+      {"name": "paprika", "amount": "for garnish", "category": "spices"}
+    ],
+    "directions": [
+      "Cook Potatoes and Eggs: Place whole potatoes and eggs in cold water. Bring to a boil. After 7 minutes, remove eggs to cold water. Continue boiling potatoes until fork-tender (10-15 more minutes).",
+      "Prep Potatoes: Cool potatoes slightly, peel if desired, and chop into bite-sized pieces. Let cool completely.",
+      "Make Dressing: Combine mayonnaise, relish, vinegar, sugar, salt, pepper, and celery seed. Whisk until smooth.",
+      "Assemble: Peel and chop cooled eggs. Combine potatoes, eggs, celery, and onion in a large bowl. Pour dressing over and gently toss.",
+      "Chill: Refrigerate at least 2 hours (ideally 24 hours) for flavors to meld. Garnish with paprika before serving."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "rice-aroni",
+    "name": "Homemade Beef Rice-A-Roni",
+    "prep_time": "10 minutes",
+    "cook_time": "20 minutes",
+    "total_time": "30 minutes",
+    "servings": 5,
+    "cost_estimate": 8,
+    "cost_range": "$6-10",
+    "image": "images/rice-aroni.jpg",
+    "tags": {
+      "main_ingredient": "beef",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "long-grain white rice", "amount": "¾ cup", "category": "pantry"},
+      {"name": "fideo/vermicelli", "amount": "½ cup broken into pieces", "category": "pantry"},
+      {"name": "butter", "amount": "2 tbsp", "category": "dairy"},
+      {"name": "beef broth", "amount": "2 cups", "category": "pantry"},
+      {"name": "beef bouillon powder", "amount": "1 tsp", "category": "pantry"},
+      {"name": "onion powder", "amount": "½ tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "½ tsp", "category": "spices"},
+      {"name": "Worcestershire sauce", "amount": "1 tsp", "category": "pantry"},
+      {"name": "soy sauce", "amount": "1 tsp", "category": "pantry"},
+      {"name": "black pepper", "amount": "¼ tsp", "category": "spices"},
+      {"name": "carrots", "amount": "½ cup finely chopped", "category": "produce"},
+      {"name": "parsley", "amount": "1 tbsp chopped", "category": "produce"}
+    ],
+    "directions": [
+      "Toast Rice and Pasta: In a large skillet over medium heat, melt butter. Add rice and broken pasta. Cook, stirring frequently, until lightly browned (3-5 minutes). Watch closely to avoid burning.",
+      "Add Seasonings and Broth: Stir in beef broth, bouillon powder, onion powder, garlic powder, Worcestershire sauce, soy sauce, pepper, and carrots. Bring to a boil.",
+      "Simmer: Reduce heat to low, cover, and simmer 15-20 minutes, stirring occasionally, until rice and pasta are tender and liquid is absorbed.",
+      "Finish: Remove from heat, fluff with fork, and stir in parsley. Let sit covered 5 minutes before serving."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "italian-sausage-soup-with-tortellini",
+    "name": "Italian Sausage Soup with Tortellini",
+    "prep_time": "20 minutes",
+    "cook_time": "1 hour 15 minutes",
+    "total_time": "1 hour 35 minutes",
+    "servings": 8,
+    "cost_estimate": 20,
+    "cost_range": "$18-22",
+    "image": "images/italian-sausage-soup.jpg",
+    "tags": {
+      "main_ingredient": "pork",
+      "meal_type": "dinner",
+      "cuisine": "italian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "sweet Italian sausage", "amount": "1 pound", "category": "meat"},
+      {"name": "onion", "amount": "1 cup chopped", "category": "produce"},
+      {"name": "garlic", "amount": "2 cloves minced", "category": "produce"},
+      {"name": "beef broth", "amount": "5 cups", "category": "pantry"},
+      {"name": "tomatoes", "amount": "4 large peeled, seeded, chopped", "category": "produce"},
+      {"name": "tomato sauce", "amount": "8 oz can", "category": "pantry"},
+      {"name": "carrots", "amount": "1 cup thinly sliced", "category": "produce"},
+      {"name": "water", "amount": "½ cup", "category": "pantry"},
+      {"name": "red wine", "amount": "½ cup", "category": "pantry"},
+      {"name": "fresh basil", "amount": "½ tbsp packed", "category": "produce"},
+      {"name": "dried oregano", "amount": "½ tsp", "category": "spices"},
+      {"name": "zucchini", "amount": "1 ½ cups sliced", "category": "produce"},
+      {"name": "fresh parsley", "amount": "3 tbsp chopped", "category": "produce"},
+      {"name": "fresh tortellini", "amount": "8 oz", "category": "pasta"}
+    ],
+    "directions": [
+      "Cook sausage in a 5-quart Dutch oven over medium-high heat until browned and crumbly, 8 to 10 minutes. Transfer to paper towel-lined plate. Drain grease, reserving 1 tablespoon.",
+      "Sauté onions and garlic in drippings over medium heat until translucent, 3 to 4 minutes.",
+      "Stir in beef broth, tomatoes, tomato sauce, carrots, water, wine, basil, oregano, and sausage. Bring to a boil. Reduce heat; simmer uncovered for 30 minutes.",
+      "Skim fat from soup. Stir in zucchini and parsley. Simmer covered for 30 minutes.",
+      "Add tortellini during the last 10 minutes of cooking. Serve hot with Parmesan cheese and crusty bread."
+    ],
+    "source": "https://www.allrecipes.com/recipe/13436/italian-sausage-soup-with-tortellini/"
+  },
+  {
+    "id": "one-pot-crispy-chicken-and-rice",
+    "name": "One-Pot Crispy Chicken and Rice",
+    "prep_time": "15 minutes",
+    "cook_time": "1 hour 5 minutes",
+    "total_time": "1 hour 20 minutes",
+    "servings": 6,
+    "cost_estimate": 16,
+    "cost_range": "$14-18",
+    "image": "images/one-pot-chicken-rice.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "olive oil", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "chicken thighs", "amount": "6 (4 oz each) bone-in, skin-on", "category": "meat"},
+      {"name": "kosher salt", "amount": "1 ½ tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "¾ tsp ground", "category": "spices"},
+      {"name": "unsalted butter", "amount": "1 tbsp", "category": "dairy"},
+      {"name": "yellow onion", "amount": "⅔ cup finely chopped", "category": "produce"},
+      {"name": "garlic", "amount": "2 cloves minced", "category": "produce"},
+      {"name": "long-grain rice", "amount": "1 ½ cups uncooked", "category": "pantry"},
+      {"name": "chicken stock", "amount": "3 cups", "category": "pantry"},
+      {"name": "flat-leaf parsley", "amount": "1 tbsp chopped", "category": "produce"},
+      {"name": "lemon", "amount": "for serving", "category": "produce"}
+    ],
+    "directions": [
+      "Prep chicken: Pat chicken thighs dry with paper towels. Season with 1 teaspoon salt and pepper.",
+      "Sear chicken: Heat olive oil in a large pot over medium-high heat. Add chicken skin-side down and cook until golden brown and crispy, about 5-7 minutes. Flip and cook 2-3 minutes more. Remove and set aside.",
+      "Sauté aromatics: Add butter to pot. Once melted, add onion and cook until softened, about 3 minutes. Add garlic and cook 1 minute more.",
+      "Toast rice: Add rice to pot and stir to coat with butter and onion. Cook 2-3 minutes until rice is lightly toasted.",
+      "Add liquid: Pour in chicken stock and remaining ½ teaspoon salt. Stir well and bring to a simmer.",
+      "Add chicken back: Nestle chicken thighs skin-side up into the rice. Cover and reduce heat to low. Cook for 40-45 minutes until rice is tender and chicken reaches 165°F.",
+      "Rest and serve: Remove from heat and let rest 5 minutes. Fluff rice, sprinkle with parsley, and serve with lemon wedges."
+    ],
+    "source": "https://www.allrecipes.com/recipe/282524/one-pot-crispy-chicken-and-rice/"
+  },
+  {
+    "id": "blackened-chicken-black-beans-rice",
+    "name": "Blackened Chicken with Black Beans and Rice",
+    "prep_time": "15 minutes",
+    "cook_time": "25 minutes",
+    "total_time": "40 minutes",
+    "servings": 4,
+    "cost_estimate": 13.5,
+    "cost_range": "$12-15",
+    "image": "images/blackened-chicken.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "cajun",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "yellow rice", "amount": "1 cup", "category": "pantry"},
+      {"name": "chicken breast", "amount": "1 large", "category": "meat"},
+      {"name": "black beans", "amount": "1 can", "category": "canned"},
+      {"name": "blackened seasoning", "amount": "to taste", "category": "spices"},
+      {"name": "butter", "amount": "2 tbsp", "category": "dairy"},
+      {"name": "olive oil", "amount": "1 tbsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Cook rice: Prepare yellow rice according to package directions.",
+      "Heat beans: Warm black beans in a small saucepan or microwave.",
+      "Season chicken: Season chicken breast generously with blackened seasoning on both sides.",
+      "Cook chicken: Heat butter and olive oil in a skillet over medium-high heat. Lightly brown both sides, reduce heat, cover and cook until done (165°F internal temp).",
+      "Rest and shred: Remove chicken and let cool 5 minutes. Shred into bite-sized chunks.",
+      "Assemble: Add shredded chicken to rice. Serve with black beans on the side."
+    ],
+    "source": "Kristina"
+  },
+  {
+    "id": "long-john-silvers-hushpuppies",
+    "name": "Long John Silver's Hushpuppies",
+    "prep_time": "15 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "30 minutes",
+    "servings": 24,
+    "cost_estimate": 7,
+    "cost_range": "$6-8",
+    "image": "images/hushpuppies.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "sides",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "1½ cups", "category": "pantry"},
+      {"name": "cornmeal", "amount": "1½ cups", "category": "pantry"},
+      {"name": "baking powder", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "onion powder", "amount": "½ tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "¼ tsp", "category": "spices"},
+      {"name": "sugar", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "buttermilk", "amount": "1 cup", "category": "dairy"},
+      {"name": "egg", "amount": "1 large", "category": "dairy"},
+      {"name": "onion", "amount": "¼ cup finely chopped", "category": "produce"},
+      {"name": "water", "amount": "½ cup", "category": "pantry"},
+      {"name": "vegetable oil", "amount": "for frying", "category": "pantry"}
+    ],
+    "directions": [
+      "Mix dry ingredients: In a large bowl, combine flour, cornmeal, baking powder, salt, onion powder, garlic powder, and sugar.",
+      "Mix wet ingredients: In a separate bowl, whisk together buttermilk, egg, and chopped onion.",
+      "Combine: Gradually mix wet into dry, stirring until just combined. Add water slowly for thick, scoopable batter.",
+      "Heat oil: Heat vegetable oil to 350°F (175°C) in a deep fryer or heavy pot (2-3 inches deep).",
+      "Form and fry: Using a cookie scoop or tablespoon, drop batter into hot oil. Fry 2-3 minutes, turning occasionally, until golden brown and crispy.",
+      "Drain: Remove with slotted spoon and drain on paper towels. Serve hot."
+    ],
+    "source": "Kristina"
+  },
+  {
+    "id": "chipotle-guacamole",
+    "name": "Chipotle Guacamole",
+    "prep_time": "10 minutes",
+    "cook_time": "0 minutes",
+    "total_time": "10 minutes",
+    "servings": 4,
+    "cost_estimate": 5,
+    "cost_range": "$4-6",
+    "image": "images/guacamole.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "appetizer",
+      "cuisine": "mexican",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "Hass avocados", "amount": "2 ripe", "category": "produce"},
+      {"name": "lime juice", "amount": "2 tsp", "category": "produce"},
+      {"name": "red onion", "amount": "1/3 cup finely chopped", "category": "produce"},
+      {"name": "cilantro", "amount": "2 tbsp chopped", "category": "produce"},
+      {"name": "jalapeño", "amount": "1/2 pepper finely chopped", "category": "produce"},
+      {"name": "kosher salt", "amount": "1/2 tsp", "category": "spices"}
+    ],
+    "directions": [
+      "Prep avocados: Cut in half, remove pits, scoop flesh into bowl.",
+      "Season: Add lime juice and salt right away to prevent browning.",
+      "Mash: Mash with fork until mostly smooth but still chunky.",
+      "Mix: Stir in onion, cilantro, and jalapeño until combined.",
+      "Taste and adjust: Add more salt, lime, or jalapeño as needed.",
+      "Serve immediately with tortilla chips or on tacos/burritos."
+    ],
+    "source": "Kristina"
+  }
+]
