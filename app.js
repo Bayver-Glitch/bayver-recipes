@@ -132,14 +132,25 @@ function setupTabs() {
 function setupEventListeners() {
     // Filter changes
     const mealFilter = document.getElementById('filter-meal');
-    const ingredientFilter = document.getElementById('filter-ingredient');
+    const meatFilter = document.getElementById('filter-meat');
     const cuisineFilter = document.getElementById('filter-cuisine');
     const favoritesFilter = document.getElementById('filter-favorites');
     const searchFilter = document.getElementById('filter-search');
     const clearFiltersBtn = document.getElementById('clear-filters');
 
-    if (mealFilter) mealFilter.addEventListener('change', renderRecipes);
-    if (ingredientFilter) ingredientFilter.addEventListener('change', renderRecipes);
+    if (mealFilter) {
+        mealFilter.addEventListener('change', () => {
+            // Show/hide meat filter for certain meal types
+            const selectedMeal = mealFilter.value;
+            const showMeat = ['crockpot', 'dinner', 'lunch'].includes(selectedMeal);
+            if (meatFilter) {
+                meatFilter.style.display = showMeat ? 'block' : 'none';
+                if (!showMeat) meatFilter.value = '';
+            }
+            renderRecipes();
+        });
+    }
+    if (meatFilter) meatFilter.addEventListener('change', renderRecipes);
     if (cuisineFilter) cuisineFilter.addEventListener('change', renderRecipes);
     if (favoritesFilter) favoritesFilter.addEventListener('change', renderRecipes);
     if (searchFilter) searchFilter.addEventListener('input', renderRecipes);
@@ -147,7 +158,11 @@ function setupEventListeners() {
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
             document.getElementById('filter-meal').value = '';
-            document.getElementById('filter-ingredient').value = '';
+            const meatFilterEl = document.getElementById('filter-meat');
+            if (meatFilterEl) {
+                meatFilterEl.value = '';
+                meatFilterEl.style.display = 'none';
+            }
             document.getElementById('filter-cuisine').value = '';
             document.getElementById('filter-favorites').value = '';
             document.getElementById('filter-search').value = '';
@@ -256,14 +271,14 @@ function renderFeaturedRecipe() {
 // Render recipe cards
 function renderRecipes() {
     const mealFilter = document.getElementById('filter-meal')?.value || '';
-    const ingredientFilter = document.getElementById('filter-ingredient')?.value || '';
+    const meatFilter = document.getElementById('filter-meat')?.value || '';
     const cuisineFilter = document.getElementById('filter-cuisine')?.value || '';
     const favoritesFilter = document.getElementById('filter-favorites')?.value || '';
     const searchFilter = document.getElementById('filter-search')?.value?.toLowerCase() || '';
 
     const filtered = recipes.filter(r => {
         if (mealFilter && r.meal_type !== mealFilter) return false;
-        if (ingredientFilter && r.main_ingredient !== ingredientFilter) return false;
+        if (meatFilter && r.main_ingredient !== meatFilter) return false;
         if (cuisineFilter && r.cuisine !== cuisineFilter) return false;
         if (favoritesFilter === 'true' && !r.isFavorite) return false;
         if (searchFilter && !r.name.toLowerCase().includes(searchFilter)) return false;
