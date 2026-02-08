@@ -679,5 +679,209 @@
       "Finish: Bring to a boil; cook and stir until chicken is no longer pink in the center and vegetables are tender, 5 to 7 minutes. Serve over rice."
     ],
     "source": "Kristina"
+  },
+  {
+    "id": "peach-cobbler",
+    "name": "Peach Cobbler",
+    "prep_time": "10 minutes",
+    "cook_time": "30-40 minutes",
+    "total_time": "45-50 minutes",
+    "servings": 8,
+    "cost_estimate": 9,
+    "cost_range": "$8-10",
+    "image": "images/peach-cobbler.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "dessert",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "butter", "amount": "½ cup (1 stick)", "category": "dairy"},
+      {"name": "peaches", "amount": "4 cups sliced", "category": "produce"},
+      {"name": "sugar", "amount": "2 cups total", "category": "pantry"},
+      {"name": "self-rising flour", "amount": "1 cup", "category": "pantry"},
+      {"name": "milk", "amount": "1 cup", "category": "dairy"},
+      {"name": "vanilla extract", "amount": "1 tsp optional", "category": "pantry"},
+      {"name": "cinnamon", "amount": "½ tsp optional", "category": "spices"}
+    ],
+    "directions": [
+      "Preheat oven to 350°F (175°C).",
+      "Melt butter: Place butter in a 9x13-inch baking dish and put in the oven to melt while preheating.",
+      "Prepare batter: In a bowl, mix flour, 1 cup sugar, milk, and vanilla until smooth.",
+      "Assemble: Pour batter evenly over the melted butter in the baking dish. Do not stir.",
+      "Add peaches: Mix remaining sugar with cinnamon if using. Spoon peaches and sugar evenly over the batter. Do not stir.",
+      "Bake: Bake for 30-40 minutes until the top is golden brown and a toothpick inserted in the crust comes out clean.",
+      "Serve: Let cool slightly. Serve warm with vanilla ice cream or whipped cream."
+    ],
+    "source": "Email 41"
+  },
+  {
+    "id": "lo-mein-noodles",
+    "name": "Homemade Lo Mein Noodles",
+    "prep_time": "30 minutes",
+    "cook_time": "5 minutes",
+    "total_time": "45 minutes",
+    "servings": 4,
+    "cost_estimate": 2.5,
+    "cost_range": "$2-3",
+    "image": "images/lo-mein-noodles.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "2 cups", "category": "pantry"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "eggs", "amount": "2 large", "category": "dairy"},
+      {"name": "water", "amount": "¼ cup", "category": "pantry"},
+      {"name": "cornstarch", "amount": "for dusting", "category": "pantry"}
+    ],
+    "directions": [
+      "Mix dry ingredients: In a large bowl, whisk together flour and salt.",
+      "Add wet ingredients: Create a well in the center. Add eggs and water. Mix with a fork until a shaggy dough forms.",
+      "Knead: Turn dough onto a lightly floured surface. Knead for 8-10 minutes until smooth and elastic.",
+      "Rest: Cover dough with a damp cloth and let rest for 30 minutes.",
+      "Roll: Divide dough into 4 portions. Roll each portion into a thin sheet (about ⅛ inch thick), dusting with cornstarch to prevent sticking.",
+      "Cut: Fold the sheet loosely and cut into thin strips (about ¼ inch wide) for lo mein noodles. Unfold and dust with more cornstarch.",
+      "Cook: Bring a large pot of salted water to boil. Cook noodles for 3-5 minutes until tender but still chewy. Drain and rinse with cold water.",
+      "Use: Toss with sesame oil to prevent sticking, then use in your favorite lo mein or stir-fry recipe."
+    ],
+    "source": "Email 39"
+  },
+  {
+    "id": "chicken-and-dumplings",
+    "name": "Chicken and Dumplings",
+    "prep_time": "20 minutes",
+    "cook_time": "45 minutes",
+    "total_time": "1 hour 5 minutes",
+    "servings": 6,
+    "cost_estimate": 13.5,
+    "cost_range": "$12-15",
+    "image": "images/chicken-and-dumplings.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "chicken thighs", "amount": "2 lbs bone-in, skin-on", "category": "meat"},
+      {"name": "onion", "amount": "1 chopped", "category": "produce"},
+      {"name": "carrots", "amount": "2 sliced", "category": "produce"},
+      {"name": "celery", "amount": "2 stalks sliced", "category": "produce"},
+      {"name": "garlic", "amount": "3 cloves minced", "category": "produce"},
+      {"name": "chicken broth", "amount": "6 cups", "category": "pantry"},
+      {"name": "water", "amount": "2 cups", "category": "pantry"},
+      {"name": "dried thyme", "amount": "1 tsp", "category": "spices"},
+      {"name": "dried parsley", "amount": "1 tsp", "category": "spices"},
+      {"name": "bay leaf", "amount": "1", "category": "spices"},
+      {"name": "butter", "amount": "2 tbsp", "category": "dairy"},
+      {"name": "all-purpose flour", "amount": "2 tbsp for stew + 2 cups for dumplings", "category": "pantry"},
+      {"name": "baking powder", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "salt", "amount": "to taste", "category": "spices"},
+      {"name": "milk", "amount": "¾ cup", "category": "dairy"}
+    ],
+    "directions": [
+      "Sear chicken: Heat butter in a large Dutch oven over medium-high heat. Season chicken with salt and pepper. Sear until golden, about 4 minutes per side. Remove and set aside.",
+      "Sauté vegetables: Add onion, carrots, and celery. Cook until softened, about 5 minutes. Add garlic and cook 1 minute more.",
+      "Thicken: Sprinkle 2 tbsp flour over vegetables and stir to coat. Cook for 1 minute.",
+      "Add liquid: Slowly pour in broth and water, stirring constantly to prevent lumps.",
+      "Season: Add thyme, parsley, bay leaf, salt, and pepper. Return chicken to pot.",
+      "Simmer: Bring to a boil, then reduce heat and simmer uncovered for 20 minutes until chicken is cooked through.",
+      "Shred chicken: Remove chicken, discard skin and bones, and shred meat. Return meat to pot.",
+      "Make dumplings: Mix 2 cups flour, baking powder, and salt. Stir in melted butter and milk until just combined. Do not overmix.",
+      "Cook dumplings: Drop tablespoon-sized portions of dough onto the simmering stew. Cover and cook for 15 minutes without lifting the lid.",
+      "Serve: Remove bay leaf. Ladle into bowls and serve hot."
+    ],
+    "source": "Email 38"
+  },
+  {
+    "id": "broccoli-and-cheese",
+    "name": "Broccoli and Cheese",
+    "prep_time": "10 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "25 minutes",
+    "servings": 4,
+    "cost_estimate": 6,
+    "cost_range": "$5-7",
+    "image": "images/broccoli-and-cheese.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "sides",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "broccoli florets", "amount": "4 cups (about 1 large head)", "category": "produce"},
+      {"name": "butter", "amount": "2 tbsp", "category": "dairy"},
+      {"name": "all-purpose flour", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "milk", "amount": "1 cup", "category": "dairy"},
+      {"name": "sharp cheddar cheese", "amount": "1 cup shredded", "category": "dairy"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "¼ tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "¼ tsp optional", "category": "spices"}
+    ],
+    "directions": [
+      "Prep broccoli: Wash broccoli and cut into bite-sized florets. Steam or boil for 3-4 minutes until bright green and just tender. Drain well.",
+      "Make roux: In a medium saucepan, melt butter over medium heat. Whisk in flour and cook for 1 minute, stirring constantly.",
+      "Add milk: Gradually whisk in milk, stirring constantly to prevent lumps. Cook until sauce thickens and bubbles, about 3-4 minutes.",
+      "Add cheese: Remove from heat. Stir in shredded cheese, salt, pepper, and garlic powder (if using). Stir until cheese is fully melted and sauce is smooth.",
+      "Combine: Pour cheese sauce over cooked broccoli and gently toss to coat.",
+      "Serve: Transfer to a serving dish and serve immediately."
+    ],
+    "source": "Email 37"
+  },
+  {
+    "id": "homestyle-meatloaf",
+    "name": "Homestyle Meatloaf",
+    "prep_time": "15 minutes",
+    "cook_time": "1 hour",
+    "total_time": "1 hour 15 minutes",
+    "servings": 6,
+    "cost_estimate": 14,
+    "cost_range": "$12-16",
+    "image": "images/homestyle-meatloaf.jpg",
+    "tags": {
+      "main_ingredient": "beef",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "ground beef", "amount": "1 lb (80/20)", "category": "meat"},
+      {"name": "ground pork", "amount": "½ lb", "category": "meat"},
+      {"name": "breadcrumbs", "amount": "1 cup", "category": "pantry"},
+      {"name": "milk", "amount": "½ cup", "category": "dairy"},
+      {"name": "egg", "amount": "1 large", "category": "dairy"},
+      {"name": "onion", "amount": "1 small finely diced", "category": "produce"},
+      {"name": "garlic", "amount": "2 cloves minced", "category": "produce"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "Worcestershire sauce", "amount": "1 tsp", "category": "pantry"},
+      {"name": "dried parsley", "amount": "1 tsp", "category": "spices"},
+      {"name": "ketchup", "amount": "½ cup", "category": "pantry"},
+      {"name": "brown sugar", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "apple cider vinegar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "mustard", "amount": "1 tsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Preheat oven to 350°F (175°C). Line a loaf pan with foil or parchment for easy cleanup.",
+      "Mix meatloaf: In a large bowl, combine ground beef, ground pork, breadcrumbs, milk, egg, onion, garlic, salt, pepper, Worcestershire sauce, and parsley. Mix gently with your hands until just combined. Don't overmix.",
+      "Shape: Transfer mixture to the prepared loaf pan and shape into a loaf, pressing gently to fill the pan evenly.",
+      "Make glaze: In a small bowl, whisk together ketchup, brown sugar, vinegar, and mustard.",
+      "Add glaze: Spread half the glaze over the top of the meatloaf. Reserve remaining glaze for serving.",
+      "Bake: Bake for 1 hour until internal temperature reaches 160°F (71°C).",
+      "Rest: Let meatloaf rest for 10 minutes before slicing.",
+      "Serve: Slice and serve with remaining glaze on the side."
+    ],
+    "source": "Email 36"
   }
 ]
