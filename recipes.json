@@ -557,5 +557,84 @@
       "Serve immediately with tortilla chips or on tacos/burritos."
     ],
     "source": "Kristina"
+  },
+  {
+    "id": "skyline-chili",
+    "name": "Skyline Chili",
+    "prep_time": "15 minutes",
+    "cook_time": "1 hour 10 minutes",
+    "total_time": "1 hour 25 minutes",
+    "servings": 8,
+    "cost_estimate": 13,
+    "cost_range": "$12-15",
+    "image": "images/skyline-chili.jpg",
+    "tags": {
+      "main_ingredient": "beef",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "ground beef", "amount": "2 lb", "category": "meat"},
+      {"name": "onion", "amount": "2 cups chopped", "category": "produce"},
+      {"name": "beef stock", "amount": "4 cups", "category": "pantry"},
+      {"name": "tomato sauce", "amount": "2 (8 oz) cans", "category": "canned"},
+      {"name": "chili powder", "amount": "2-3 tbsp", "category": "spices"},
+      {"name": "apple cider vinegar", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "Worcestershire sauce", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "cocoa powder", "amount": "2¾ tbsp", "category": "pantry"},
+      {"name": "garlic", "amount": "2 tsp minced", "category": "produce"},
+      {"name": "ground cumin", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "1/2 tsp", "category": "spices"},
+      {"name": "cayenne pepper", "amount": "1/2 tsp", "category": "spices"},
+      {"name": "ground allspice", "amount": "1/4 tsp", "category": "spices"},
+      {"name": "ground cloves", "amount": "1/4 tsp", "category": "spices"},
+      {"name": "cinnamon", "amount": "1 tsp", "category": "spices"},
+      {"name": "bay leaf", "amount": "1", "category": "spices"}
+    ],
+    "directions": [
+      "Brown ground beef and onion in a large pot, drain excess fat.",
+      "Add beef stock and simmer for 10 minutes.",
+      "Add remaining ingredients (tomato sauce, chili powder, vinegar, Worcestershire, cocoa, garlic, cumin, salt, red pepper, allspice, cloves, cinnamon, and bay leaf).",
+      "Simmer uncovered for 1 hour, stirring occasionally.",
+      "Remove bay leaf, skim off excess fat. Serve over spaghetti with shredded cheese and onions if desired."
+    ],
+    "source": "Kristina"
+  },
+  {
+    "id": "peanut-butter-pinwheels",
+    "name": "Peanut Butter Pinwheels",
+    "prep_time": "15 minutes",
+    "cook_time": "0 minutes",
+    "total_time": "1 hour 15 minutes",
+    "servings": 24,
+    "cost_estimate": 7,
+    "cost_range": "$6-8",
+    "image": "images/peanut-butter-pinwheels.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "dessert",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "powdered sugar", "amount": "1 lb", "category": "pantry"},
+      {"name": "butter", "amount": "1 stick softened", "category": "dairy"},
+      {"name": "milk", "amount": "2 tbsp", "category": "dairy"},
+      {"name": "vanilla", "amount": "1 tsp", "category": "pantry"},
+      {"name": "peanut butter", "amount": "8 oz", "category": "pantry"}
+    ],
+    "directions": [
+      "Beat powdered sugar, butter and vanilla until combined.",
+      "Slowly add milk until mixture comes together, stiff and dough-like.",
+      "Roll out mixture between 2 sheets of wax paper to 1/4 inch thick rectangle.",
+      "Remove top piece of wax paper. Spread evenly with peanut butter.",
+      "Roll into a log, peeling back wax paper as you go.",
+      "Wrap in wax paper and refrigerate for one hour.",
+      "Slice and serve. Store leftovers in refrigerator."
+    ],
+    "source": "Kristina"
   }
 ]
