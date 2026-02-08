@@ -510,6 +510,33 @@ body {
     color: var(--text);
 }
 
+.favorite-btn-modal {
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: var(--bg);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.favorite-btn-modal:hover {
+    background: var(--border);
+    transform: scale(1.1);
+}
+
+.favorite-btn-modal.active {
+    background: #ffebee;
+}
+
 /* Recipe Detail */
 .recipe-detail {
     display: grid;

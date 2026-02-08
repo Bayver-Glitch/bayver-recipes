@@ -57,7 +57,7 @@
                 </div>
                 <div class="filter-dropdown">
                     <select id="filter-meal">
-                        <option value="">All Meals</option>
+                        <option value="">Meals</option>
                         <option value="appetizer">Appetizers and Snacks</option>
                         <option value="bread">Bread</option>
                         <option value="breakfast">Breakfast</option>
@@ -72,23 +72,9 @@
                     </select>
                 </div>
                 <div class="filter-dropdown">
-                    <select id="filter-ingredient">
-                        <option value="">All Ingredients</option>
-                        <option value="beef">Beef</option>
-                        <option value="pork">Pork</option>
-                        <option value="chicken">Chicken</option>
-                        <option value="veal">Veal</option>
-                        <option value="seafood">Seafood</option>
-                        <option value="fish">Fish</option>
-                        <option value="vegetables">Vegetables</option>
-                        <option value="fruit">Fruit</option>
-                        <option value="pasta">Pasta</option>
-                        <option value="rice">Rice</option>
-                    </select>
-                </div>
                 <div class="filter-dropdown">
                     <select id="filter-cuisine">
-                        <option value="">All Cuisines</option>
+                        <option value="">Cuisines</option>
                         <option value="american">American</option>
                         <option value="italian">Italian</option>
                         <option value="mexican">Mexican</option>
@@ -156,6 +142,7 @@
     <div id="recipe-modal" class="modal">
         <div class="modal-content">
             <button class="close-modal">×</button>
+            <button id="modal-favorite" class="favorite-btn-modal">🤍</button>
             <div class="recipe-detail">
                 <div class="recipe-detail-image" id="modal-image">
                     <span>📷</span>
@@ -163,7 +150,6 @@
                 <div class="recipe-detail-content">
                     <div class="recipe-detail-header">
                         <h2 id="modal-title">Recipe Title</h2>
-                        <button id="modal-favorite" class="favorite-btn">🤍</button>
                     </div>
                     <div class="recipe-tags" id="modal-tags"></div>
                     <div class="recipe-meta">
