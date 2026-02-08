@@ -198,12 +198,6 @@ function setupEventListeners() {
         document.getElementById('selected-day-panel').style.display = 'none';
     });
 
-    // Modal add to menu button
-    const modalAddBtn = document.getElementById('modal-add-to-menu');
-    if (modalAddBtn) modalAddBtn.addEventListener('click', () => {
-        openPlannerModal(currentRecipe);
-    });
-
     // Month navigation
     const prevMonth = document.getElementById('prev-month');
     const nextMonth = document.getElementById('next-month');
