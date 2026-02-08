@@ -636,5 +636,48 @@
       "Slice and serve. Store leftovers in refrigerator."
     ],
     "source": "Kristina"
+  },
+  {
+    "id": "chicken-stir-fry",
+    "name": "Chicken Stir Fry",
+    "prep_time": "15 minutes",
+    "cook_time": "30 minutes",
+    "total_time": "45 minutes",
+    "servings": 4,
+    "cost_estimate": 12,
+    "cost_range": "$10-14",
+    "image": "images/chicken-stir-fry.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "water", "amount": "4 cups", "category": "pantry"},
+      {"name": "white rice", "amount": "2 cups", "category": "pantry"},
+      {"name": "soy sauce", "amount": "⅔ cup", "category": "pantry"},
+      {"name": "brown sugar", "amount": "¼ cup", "category": "pantry"},
+      {"name": "cornstarch", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "fresh ginger", "amount": "1 tbsp minced", "category": "produce"},
+      {"name": "garlic", "amount": "1 tbsp minced", "category": "produce"},
+      {"name": "red pepper flakes", "amount": "¼ tsp", "category": "spices"},
+      {"name": "chicken breast", "amount": "3 halves, thinly sliced", "category": "meat"},
+      {"name": "sesame oil", "amount": "2 tbsp, divided", "category": "pantry"},
+      {"name": "broccoli", "amount": "1 head, broken into florets", "category": "produce"},
+      {"name": "onion", "amount": "1 large, chunked", "category": "produce"},
+      {"name": "carrots", "amount": "1 cup sliced", "category": "produce"},
+      {"name": "water chestnuts", "amount": "1 (8 oz) can, drained", "category": "canned"},
+      {"name": "green bell pepper", "amount": "1, cut into matchsticks", "category": "produce"}
+    ],
+    "directions": [
+      "Cook Rice: Bring water and rice to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until rice is tender, and liquid has been absorbed, 20 to 25 minutes.",
+      "Marinate Chicken: Meanwhile, combine soy sauce, brown sugar, and cornstarch in a medium glass or ceramic bowl; stir until smooth. Stir in ginger, garlic, and red pepper flakes; add chicken and stir to coat. Cover and marinate in the refrigerator for at least 15 minutes.",
+      "Cook Vegetables: Heat 1 tablespoon sesame oil in a wok or large skillet over medium-high heat. Add broccoli, onion, carrots, water chestnuts, and bell pepper; cook and stir until just tender, about 5 minutes. Transfer vegetables into a dish; set aside.",
+      "Cook Chicken: Heat remaining 1 tablespoon sesame oil in the same wok or skillet over medium-high heat. Add chicken, reserving marinade, and cook until just browned, about 2 minutes per side; stir in vegetables and reserved marinade.",
+      "Finish: Bring to a boil; cook and stir until chicken is no longer pink in the center and vegetables are tender, 5 to 7 minutes. Serve over rice."
+    ],
+    "source": "Kristina"
   }
 ]
