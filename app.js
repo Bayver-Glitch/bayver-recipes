@@ -425,7 +425,13 @@ function openRecipeModal(id) {
     // Setup edit button
     const editBtn = document.getElementById('modal-edit');
     if (editBtn) {
-        editBtn.onclick = () => openEditModal(recipe);
+        console.log('Setting up edit button for:', recipe.name);
+        editBtn.onclick = function() {
+            console.log('Edit button clicked for:', recipe.id);
+            openEditModal(recipe);
+        };
+    } else {
+        console.error('Edit button not found!');
     }
 
     // Setup print button
