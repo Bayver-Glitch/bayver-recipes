@@ -171,6 +171,16 @@ function setupEventListeners() {
     // Add to planner confirm
     const confirmBtn = document.getElementById('confirm-add-to-planner');
     if (confirmBtn) confirmBtn.addEventListener('click', addToPlanner);
+    
+    // Modal action buttons
+    const modalAddBtn = document.getElementById('modal-add-to-menu');
+    if (modalAddBtn) modalAddBtn.addEventListener('click', () => openPlannerModal(currentRecipe));
+    
+    const modalEditBtn = document.getElementById('modal-edit');
+    if (modalEditBtn) modalEditBtn.addEventListener('click', () => openEditModal(currentRecipe));
+    
+    const modalPrintBtn = document.getElementById('modal-print');
+    if (modalPrintBtn) modalPrintBtn.addEventListener('click', () => printRecipe(currentRecipe));
 
     // Generate grocery list
     const generateBtn = document.getElementById('generate-grocery-list');
@@ -680,7 +690,17 @@ window.onclick = function(event) {
 
 // Edit recipe functions
 function openEditModal(recipe) {
-    if (!recipe) return;
+    console.log('Opening edit modal for:', recipe?.name);
+    if (!recipe) {
+        console.log('No recipe provided');
+        return;
+    }
+
+    const editModal = document.getElementById('edit-modal');
+    if (!editModal) {
+        console.log('Edit modal not found');
+        return;
+    }
 
     document.getElementById('edit-name').value = recipe.name;
     document.getElementById('edit-prep').value = recipe.prep_time || '';
@@ -701,10 +721,15 @@ function openEditModal(recipe) {
     // Setup save button
     document.getElementById('save-edit').onclick = () => saveRecipeEdit(recipe.id);
     document.getElementById('cancel-edit').onclick = () => {
-        document.getElementById('edit-modal').classList.remove('active');
+        editModal.classList.remove('active');
     };
 
-    document.getElementById('edit-modal').classList.add('active');
+    // Close recipe modal first
+    document.getElementById('recipe-modal').classList.remove('active');
+    
+    // Open edit modal
+    editModal.classList.add('active');
+    console.log('Edit modal opened');
 }
 
 // Photo upload handling
