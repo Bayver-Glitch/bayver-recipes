@@ -883,5 +883,280 @@
       "Serve: Slice and serve with remaining glaze on the side."
     ],
     "source": "Email 36"
+  },
+  {
+    "id": "dairy-queen-country-gravy",
+    "name": "Dairy Queen Country Gravy",
+    "prep_time": "5 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "20 minutes",
+    "servings": 4,
+    "cost_estimate": 5,
+    "cost_range": "$4-6",
+    "image": "images/country-gravy.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "sides",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "sausage", "amount": "½ lb breakfast", "category": "meat"},
+      {"name": "all-purpose flour", "amount": "¼ cup", "category": "pantry"},
+      {"name": "whole milk", "amount": "2 cups", "category": "dairy"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp ground", "category": "spices"}
+    ],
+    "directions": [
+      "Cook sausage: Brown breakfast sausage in a skillet over medium heat until fully cooked, breaking into crumbles.",
+      "Make roux: Sprinkle flour over cooked sausage. Stir and cook for 1-2 minutes.",
+      "Add milk: Slowly pour in milk while stirring constantly to prevent lumps.",
+      "Simmer: Bring to a simmer and cook for 5-10 minutes, stirring occasionally, until gravy thickens to desired consistency.",
+      "Season: Add salt and pepper to taste. Serve hot over biscuits or chicken strips."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "dairy-queen-chicken-strips",
+    "name": "Dairy Queen Chicken Strips",
+    "prep_time": "30 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "45 minutes",
+    "servings": 4,
+    "cost_estimate": 12,
+    "cost_range": "$10-14",
+    "image": "images/chicken-strips.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "chicken breast", "amount": "1 ½ lbs", "category": "meat"},
+      {"name": "buttermilk", "amount": "1 cup", "category": "dairy"},
+      {"name": "all-purpose flour", "amount": "1 cup", "category": "pantry"},
+      {"name": "cornstarch", "amount": "½ cup", "category": "pantry"},
+      {"name": "paprika", "amount": "1 tsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "onion powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "cayenne pepper", "amount": "¼ tsp", "category": "spices"},
+      {"name": "vegetable oil", "amount": "for frying", "category": "pantry"}
+    ],
+    "directions": [
+      "Cut chicken: Slice chicken breast into 1-inch wide strips.",
+      "Marinate: Soak chicken strips in buttermilk for at least 30 minutes (or overnight in refrigerator).",
+      "Prepare breading: Mix flour, cornstarch, paprika, garlic powder, onion powder, salt, pepper, and cayenne in a shallow dish.",
+      "Dredge: Remove chicken from buttermilk, letting excess drip off. Dredge in flour mixture, pressing to coat evenly.",
+      "Fry: Heat oil to 350°F. Fry chicken strips in batches for 4-5 minutes until golden brown and internal temperature reaches 165°F.",
+      "Drain: Remove to paper towel-lined plate. Serve hot with country gravy or dipping sauce."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "naan",
+    "name": "Naan",
+    "prep_time": "1 hour 30 minutes",
+    "cook_time": "10 minutes",
+    "total_time": "1 hour 40 minutes",
+    "servings": 8,
+    "cost_estimate": 4,
+    "cost_range": "$3-5",
+    "image": "images/naan.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "bread",
+      "cuisine": "asian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "2 ¼ cups", "category": "pantry"},
+      {"name": "active dry yeast", "amount": "1 packet (2 ¼ tsp)", "category": "pantry"},
+      {"name": "sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "salt", "amount": "½ tsp", "category": "spices"},
+      {"name": "warm water", "amount": "¾ cup (110°F)", "category": "pantry"},
+      {"name": "plain yogurt", "amount": "¼ cup", "category": "dairy"},
+      {"name": "olive oil", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "garlic", "amount": "2 cloves minced (optional)", "category": "produce"},
+      {"name": "butter", "amount": "2 tbsp melted", "category": "dairy"}
+    ],
+    "directions": [
+      "Activate yeast: Mix warm water, sugar, and yeast. Let sit 5-10 minutes until foamy.",
+      "Make dough: In a large bowl, combine flour and salt. Add yeast mixture, yogurt, and olive oil. Mix until dough forms.",
+      "Knead: Turn onto floured surface and knead for 5-7 minutes until smooth and elastic.",
+      "First rise: Place dough in oiled bowl, cover, and let rise in warm place for 1 hour until doubled.",
+      "Shape: Punch down dough and divide into 8 pieces. Roll each into an oval about ¼ inch thick.",
+      "Cook: Heat a cast iron skillet over medium-high heat. Cook naan one at a time for 1-2 minutes per side until puffed and charred in spots.",
+      "Finish: Brush with melted butter and minced garlic if desired. Serve warm."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "hardees-buttermilk-biscuits",
+    "name": "Hardee's Buttermilk Biscuits",
+    "prep_time": "15 minutes",
+    "cook_time": "12 minutes",
+    "total_time": "27 minutes",
+    "servings": 8,
+    "cost_estimate": 5,
+    "cost_range": "$4-6",
+    "image": "images/biscuits.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "bread",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "all-purpose flour", "amount": "2 cups", "category": "pantry"},
+      {"name": "baking powder", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "baking soda", "amount": "¼ tsp", "category": "pantry"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "cold butter", "amount": "½ cup (1 stick), cubed", "category": "dairy"},
+      {"name": "buttermilk", "amount": "¾ cup", "category": "dairy"},
+      {"name": "melted butter", "amount": "2 tbsp for topping", "category": "dairy"}
+    ],
+    "directions": [
+      "Preheat oven to 450°F (230°C). Line a baking sheet with parchment paper.",
+      "Mix dry ingredients: In a large bowl, whisk together flour, baking powder, baking soda, salt, and sugar.",
+      "Cut in butter: Add cold butter cubes. Use a pastry cutter or fork to cut butter into flour until mixture resembles coarse crumbs.",
+      "Add buttermilk: Pour in buttermilk and stir until just combined. Do not overmix.",
+      "Knead gently: Turn dough onto lightly floured surface. Knead 3-4 times until dough comes together.",
+      "Cut biscuits: Pat dough to ¾ inch thickness. Cut with 2 ½ inch biscuit cutter or round glass. Re-roll scraps if needed.",
+      "Bake: Place biscuits on prepared baking sheet, touching slightly. Bake 10-12 minutes until golden brown on top.",
+      "Finish: Brush with melted butter immediately after removing from oven. Serve warm."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "birds-eye-garlic-chicken-pasta",
+    "name": "Birds Eye Garlic Chicken Pasta",
+    "prep_time": "10 minutes",
+    "cook_time": "20 minutes",
+    "total_time": "30 minutes",
+    "servings": 4,
+    "cost_estimate": 14,
+    "cost_range": "$12-16",
+    "image": "images/garlic-chicken-pasta.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "chicken breast", "amount": "1 lb, cubed", "category": "meat"},
+      {"name": "penne pasta", "amount": "12 oz", "category": "pasta"},
+      {"name": "frozen broccoli florets", "amount": "2 cups", "category": "frozen"},
+      {"name": "butter", "amount": "3 tbsp", "category": "dairy"},
+      {"name": "garlic", "amount": "4 cloves minced", "category": "produce"},
+      {"name": "heavy cream", "amount": "1 cup", "category": "dairy"},
+      {"name": "parmesan cheese", "amount": "½ cup grated", "category": "dairy"},
+      {"name": "italian seasoning", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "to taste", "category": "spices"},
+      {"name": "black pepper", "amount": "to taste", "category": "spices"},
+      {"name": "olive oil", "amount": "1 tbsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Cook pasta: Boil pasta according to package directions, adding broccoli during the last 3 minutes. Drain and set aside.",
+      "Cook chicken: Heat olive oil in a large skillet over medium-high heat. Season chicken with salt, pepper, and Italian seasoning. Cook until golden and cooked through, about 6-8 minutes. Remove and set aside.",
+      "Make sauce: In the same skillet, melt butter. Add garlic and sauté for 1 minute until fragrant.",
+      "Add cream: Pour in heavy cream and simmer for 3-4 minutes until slightly thickened.",
+      "Combine: Stir in parmesan cheese until melted. Add cooked pasta, broccoli, and chicken to the sauce. Toss to coat evenly.",
+      "Serve: Taste and adjust seasoning. Serve hot with extra parmesan if desired."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "hardees-chicken-tenders",
+    "name": "Hardee's Chicken Tenders",
+    "prep_time": "30 minutes",
+    "cook_time": "12 minutes",
+    "total_time": "42 minutes",
+    "servings": 4,
+    "cost_estimate": 12,
+    "cost_range": "$10-14",
+    "image": "images/chicken-tenders.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "american",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "chicken breast tenders", "amount": "1 ½ lbs", "category": "meat"},
+      {"name": "buttermilk", "amount": "1 cup", "category": "dairy"},
+      {"name": "hot sauce", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "all-purpose flour", "amount": "1 ½ cups", "category": "pantry"},
+      {"name": "cornstarch", "amount": "½ cup", "category": "pantry"},
+      {"name": "paprika", "amount": "1 tbsp", "category": "spices"},
+      {"name": "garlic powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "onion powder", "amount": "1 tsp", "category": "spices"},
+      {"name": "salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "cayenne pepper", "amount": "½ tsp", "category": "spices"},
+      {"name": "vegetable oil", "amount": "for frying", "category": "pantry"}
+    ],
+    "directions": [
+      "Marinate: Mix buttermilk and hot sauce in a bowl. Add chicken tenders and marinate for at least 30 minutes (or up to 4 hours).",
+      "Prepare breading: In a shallow dish, combine flour, cornstarch, paprika, garlic powder, onion powder, salt, pepper, and cayenne.",
+      "Dredge: Remove chicken from buttermilk, letting excess drip off. Dredge each tender in flour mixture, pressing to coat well. Shake off excess.",
+      "Fry: Heat oil to 350°F. Fry tenders in batches for 4-5 minutes until golden brown and internal temperature reaches 165°F.",
+      "Drain: Transfer to paper towel-lined plate to drain excess oil.",
+      "Serve: Serve hot with your favorite dipping sauce."
+    ],
+    "source": "Calvin Casey"
+  },
+  {
+    "id": "subway-peanut-butter-cookies",
+    "name": "Subway Peanut Butter Cookies",
+    "prep_time": "15 minutes",
+    "cook_time": "10 minutes",
+    "total_time": "25 minutes",
+    "servings": 24,
+    "cost_estimate": 8,
+    "cost_range": "$6-10",
+    "image": "images/peanut-butter-cookies.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "dessert",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "creamy peanut butter", "amount": "1 cup", "category": "pantry"},
+      {"name": "butter", "amount": "½ cup softened", "category": "dairy"},
+      {"name": "brown sugar", "amount": "½ cup packed", "category": "pantry"},
+      {"name": "granulated sugar", "amount": "½ cup", "category": "pantry"},
+      {"name": "egg", "amount": "1 large", "category": "dairy"},
+      {"name": "vanilla extract", "amount": "1 tsp", "category": "pantry"},
+      {"name": "all-purpose flour", "amount": "1 ¼ cups", "category": "pantry"},
+      {"name": "baking soda", "amount": "¾ tsp", "category": "pantry"},
+      {"name": "baking powder", "amount": "½ tsp", "category": "pantry"},
+      {"name": "salt", "amount": "¼ tsp", "category": "spices"},
+      {"name": "granulated sugar", "amount": "¼ cup for rolling", "category": "pantry"}
+    ],
+    "directions": [
+      "Preheat oven to 350°F (175°C). Line baking sheets with parchment paper.",
+      "Cream: Beat peanut butter, butter, brown sugar, and ½ cup granulated sugar until light and fluffy (2-3 minutes).",
+      "Add egg and vanilla: Mix in egg and vanilla until well combined.",
+      "Mix dry ingredients: In a separate bowl, whisk flour, baking soda, baking powder, and salt.",
+      "Combine: Gradually add dry ingredients to wet mixture, mixing until just combined.",
+      "Shape: Roll dough into 1-inch balls. Roll each ball in the remaining ¼ cup sugar to coat.",
+      "Flatten: Place balls 2 inches apart on prepared baking sheets. Flatten slightly with a fork, creating a crisscross pattern.",
+      "Bake: Bake for 10-12 minutes until edges are set and tops are slightly cracked.",
+      "Cool: Let cookies cool on baking sheet for 5 minutes, then transfer to wire rack to cool completely."
+    ],
+    "source": "Calvin Casey"
   }
 ]
