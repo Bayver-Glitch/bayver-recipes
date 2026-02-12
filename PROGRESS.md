@@ -215,22 +215,73 @@ Building a comprehensive recipe management and meal planning system with:
 
 ---
 
-### Phase 6: Meal Planning Workflow (Not Started)
-- "Add to Meal Planner" modal
-- Main + sides selection interface
-- Store item integration
-- Serving size adjustment
+### Phase 6: Meal Planning Workflow ✅
+**Status:** Complete and deployed
+**Completed:** Today
 
-### Phase 7: Calendar Interface (Not Started)
-- Month/week calendar view
-- Display meals on dates
-- Click to add meals
+#### What Was Built:
+- **Weekly Meal Planner View**
+  - 7-day week grid (Sunday-Saturday)
+  - 4 meal types per day (breakfast, lunch, dinner, snack)
+  - Navigate between weeks (previous/next)
+  - Visual meal cards with servings info
+  - Remove meal functionality
+
+- **Two-Step Add Meal Modal**
+  - **Step 1: Select Main Dish**
+    - Choose between recipe or store item
+    - Search functionality
+    - Radio button selection
+    - Servings adjustment (1-20)
+    - Optional notes field
+  - **Step 2: Add Side Dishes (Optional)**
+    - Filter by side categories
+    - Add multiple sides
+    - Mix recipes and store items
+    - Review and remove sides
+    - Tracks servings per side
+
+- **Meal Plan API**
+  - Full CRUD operations
+  - Fetch meal plans by date range
+  - Create meal with main + sides
+  - Update meal plan
+  - Delete meal (cascades to sides)
+  - Joins with recipes and store_items tables
+
+#### Features Implemented:
+- Main + sides workflow (e.g., Steak + Mashed Potatoes + Green Beans)
+- Mix recipes and store-bought items
+- Serving size adjustment per meal
+- Weekly calendar view
+- Meal notes
+- Side dish management
+- Remove meals from plan
+
+#### Example Meal Plans:
+- **Dinner (Monday)**: Grilled Chicken (recipe) + Mac & Cheese (Kraft store item) + Side Salad (recipe)
+- **Lunch (Tuesday)**: Uncle Ben's Rice (store item) + Stir Fry Vegetables (recipe)
+- **Breakfast (Sunday)**: Pancakes (recipe) - Serves 4
+
+#### Files Created:
+- `app/api/meal-plans/route.ts` - List/Create meal plans API
+- `app/api/meal-plans/[id]/route.ts` - Get/Update/Delete API
+- `app/meal-planner/page.tsx` - Weekly meal planner view
+- `app/components/AddMealModal.tsx` - Two-step meal selection modal
+
+---
+
+### Phase 7: Calendar Interface (Integrated with Phase 6) ✅
+- ✅ Week calendar view
+- ✅ Display meals on dates
+- ✅ Click to add meals
+- ⏳ Month view (can be added later)
+- ⏳ Drag & drop between dates (Phase 8)
 
 ### Phase 8: Drag & Drop + Editing (Not Started)
 - Drag meals between dates
-- Long-press context menu
 - Edit meal modal
-- Delete functionality
+- Advanced meal editing
 
 ### Phase 9: Shopping List Generation (Not Started)
 - Generate list from meal plan
@@ -319,11 +370,10 @@ Building a comprehensive recipe management and meal planning system with:
 
 ## 📝 Next Steps
 
-1. **Phase 5: Store Items Management** - Create CRUD for store-bought items
-2. **Phase 6: Meal Planning Workflow** - Main + sides selection
-3. **Phase 7-9: Calendar & Shopping List** - Complete the meal planning system
+1. **Phase 9: Shopping List Generation** - Generate lists from meal plans
+2. **Phase 10: UI Polish & Deployment** - Final touches and Vercel deployment
 
-**Estimated time to MVP:** 5-7 more phases (~4-6 hours of AI work)
+**Estimated time to MVP:** 2 more phases (~1-2 hours of AI work)
 
 ## 🚀 How to Run the App
 
