@@ -25,6 +25,9 @@ export default function RootLayout({
                   <a href="/" className="text-gray-700 hover:text-gray-900">
                     Recipes
                   </a>
+                  <a href="/store-items" className="text-gray-700 hover:text-gray-900">
+                    Store Items
+                  </a>
                   <a href="/meal-planner" className="text-gray-700 hover:text-gray-900">
                     Meal Planner
                   </a>
