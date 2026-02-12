@@ -1214,5 +1214,131 @@
       "Assemble: In a bowl, add desired amount of rice, then 1-2 chicken skewers. Add carrots, 2-3 cucumber pieces, egg halves, green onion, a generous dollop of spicy peanut sauce, crushed peanuts, and avocado. Drizzle glaze on chicken and serve."
     ],
     "source": "Kristina"
+  },
+  {
+    "id": "sesame-pork-stir-fry",
+    "name": "Sesame Pork Stir Fry",
+    "prep_time": "15 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "30 minutes",
+    "servings": 4,
+    "cost_estimate": 14,
+    "cost_range": "$12-16",
+    "image": "images/sesame-pork-stir-fry.jpg",
+    "tags": {
+      "main_ingredient": "pork",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "olive oil", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "sesame oil", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "boneless pork chops", "amount": "1.5 lbs", "category": "meat"},
+      {"name": "soy sauce", "amount": "¼ cup", "category": "pantry"},
+      {"name": "brown sugar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "rice vinegar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "sesame oil", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "minced ginger", "amount": "2 tsp", "category": "produce"},
+      {"name": "minced garlic", "amount": "2 tsp", "category": "produce"},
+      {"name": "sriracha", "amount": "1 tsp optional", "category": "pantry"},
+      {"name": "corn starch", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "hot water", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "carrots", "amount": "sliced", "category": "produce"},
+      {"name": "broccoli", "amount": "florets", "category": "produce"},
+      {"name": "onion", "amount": "sliced", "category": "produce"},
+      {"name": "water chestnuts", "amount": "1 can", "category": "canned"}
+    ],
+    "directions": [
+      "Heat oils: Heat olive oil and sesame oil in a large skillet over medium heat.",
+      "Cook pork: Slice boneless pork chops into thin slices. Add to skillet and cook 3-4 minutes without stirring to brown. Stir and cook 3-4 more minutes until cooked through.",
+      "Make sauce: In a small measuring cup, combine soy sauce, brown sugar, rice vinegar, 2 tbsp sesame oil, ginger, garlic, and sriracha (if using). Stir well.",
+      "Combine: Pour sauce into skillet with pork. Add vegetables (carrots, broccoli, onion, water chestnuts) and stir well.",
+      "Simmer: Reduce heat to medium low, cover, and cook 5 more minutes.",
+      "Thicken (optional): If desired, combine 1 tbsp corn starch with 1 tbsp hot water until dissolved. Add to skillet in the last minute of cooking and stir well.",
+      "Serve: Serve hot over rice."
+    ],
+    "source": "Kristina"
+  },
+  {
+    "id": "sticky-glazed-pork-rice-bowls",
+    "name": "Sticky Glazed Pork Rice Bowls",
+    "prep_time": "15 minutes",
+    "cook_time": "20 minutes",
+    "total_time": "35 minutes",
+    "servings": 4,
+    "cost_estimate": 16,
+    "cost_range": "$14-18",
+    "image": "images/sticky-pork-bowls.jpg",
+    "tags": {
+      "main_ingredient": "pork",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "pork tenderloin", "amount": "1 ½ lbs boneless, cut into ¼-inch strips about 3 inches long", "category": "meat"},
+      {"name": "kosher salt", "amount": "1 tsp", "category": "spices"},
+      {"name": "black pepper", "amount": "½ tsp freshly cracked", "category": "spices"},
+      {"name": "vegetable oil", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "garlic", "amount": "6-8 cloves chopped", "category": "produce"},
+      {"name": "ginger", "amount": "2 inch knob, finely chopped", "category": "produce"},
+      {"name": "honey", "amount": "½ cup", "category": "pantry"},
+      {"name": "chili garlic sauce", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "rice wine vinegar", "amount": "1 tbsp", "category": "pantry"},
+      {"name": "white rice", "amount": "cooked", "category": "pantry"},
+      {"name": "green onions", "amount": "sliced", "category": "produce"},
+      {"name": "sesame seeds", "amount": "for garnish", "category": "pantry"},
+      {"name": "cucumbers", "amount": "thinly sliced, tossed in rice wine vinegar", "category": "produce"},
+      {"name": "cilantro", "amount": "to garnish", "category": "produce"},
+      {"name": "mint", "amount": "to garnish", "category": "produce"},
+      {"name": "carrot", "amount": "julienned", "category": "produce"},
+      {"name": "sesame oil", "amount": "½ tsp", "category": "pantry"},
+      {"name": "lime juice", "amount": "3 tbsp", "category": "produce"}
+    ],
+    "directions": [
+      "Make sauce: Whisk together honey, chili garlic sauce, and rice wine vinegar. Set aside.",
+      "Cook pork: Heat oil in a cast iron skillet over medium-high heat. Season pork liberally with salt and black pepper and toss. Add pork to pan in an even layer (cook in batches to avoid overcrowding). Let first side brown, flip with tongs, and brown second side. Transfer to a plate.",
+      "Sauté aromatics: Once all pork is cooked and removed, add 1 tbsp oil if needed. Add garlic and ginger and sauté for 30 seconds.",
+      "Glaze pork: Pour in sauce mixture and bring to a boil over high heat, stirring frequently. When sauce is bubbly, add pork back in and toss to coat. The sauce will reduce to a thick, sticky glaze.",
+      "Prepare toppings: Season julienned carrots with salt, lime juice, and sesame oil.",
+      "Assemble: Serve immediately over rice bowls with green onions, sesame seeds, cucumbers, cilantro, mint, and seasoned carrots."
+    ],
+    "source": "Kristina"
+  },
+  {
+    "id": "onion-ring-batter",
+    "name": "Onion Ring Batter",
+    "prep_time": "5 minutes",
+    "cook_time": "0 minutes",
+    "total_time": "5 minutes",
+    "servings": 4,
+    "cost_estimate": 2,
+    "cost_range": "$1-3",
+    "image": "images/onion-ring-batter.jpg",
+    "tags": {
+      "main_ingredient": "none",
+      "meal_type": "sides",
+      "cuisine": "american",
+      "difficulty": "easy",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "flour", "amount": "6 tbsp", "category": "pantry"},
+      {"name": "cornstarch", "amount": "2 tbsp", "category": "pantry"},
+      {"name": "baking powder", "amount": "2 tsp", "category": "pantry"},
+      {"name": "water", "amount": "9 tbsp", "category": "pantry"},
+      {"name": "egg", "amount": "0.5 beaten", "category": "dairy"},
+      {"name": "oil", "amount": "2 tsp", "category": "pantry"}
+    ],
+    "directions": [
+      "Mix dry ingredients: Combine flour, cornstarch, and baking powder in a bowl.",
+      "Add wet ingredients: Add water, beaten egg, and oil.",
+      "Whisk: Whisk until smooth.",
+      "Use: Dip onion rings in batter and fry until golden brown."
+    ],
+    "source": "Kristina"
   }
 ]
