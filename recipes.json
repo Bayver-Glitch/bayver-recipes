@@ -1158,5 +1158,61 @@
       "Cool: Let cookies cool on baking sheet for 5 minutes, then transfer to wire rack to cool completely."
     ],
     "source": "Calvin Casey"
+  },
+  {
+    "id": "chicken-and-rice-bowl",
+    "name": "Chicken and Rice Bowl",
+    "prep_time": "30 minutes",
+    "cook_time": "30 minutes",
+    "total_time": "1 hour",
+    "servings": 4,
+    "cost_estimate": 18,
+    "cost_range": "$16-20",
+    "image": "images/chicken-rice-bowl.jpg",
+    "tags": {
+      "main_ingredient": "chicken",
+      "meal_type": "dinner",
+      "cuisine": "asian",
+      "difficulty": "medium",
+      "crockpot": false
+    },
+    "ingredients": [
+      {"name": "rice", "amount": "3 cups (630g)", "category": "pantry"},
+      {"name": "water", "amount": "3 cups (710ml)", "category": "pantry"},
+      {"name": "soy sauce", "amount": "¼ cup (67g)", "category": "pantry"},
+      {"name": "white distilled vinegar", "amount": "¼ cup (55g)", "category": "pantry"},
+      {"name": "honey", "amount": "¼ cup (53g)", "category": "pantry"},
+      {"name": "cornstarch", "amount": "2 tsp (8g)", "category": "pantry"},
+      {"name": "water", "amount": "2 tsp (9g)", "category": "pantry"},
+      {"name": "chicken thighs", "amount": "6 boneless, skinless, cut into 1-inch cubes", "category": "meat"},
+      {"name": "salt", "amount": "to taste", "category": "spices"},
+      {"name": "black pepper", "amount": "to taste", "category": "spices"},
+      {"name": "smooth peanut butter", "amount": "¾ cup (229g)", "category": "pantry"},
+      {"name": "white distilled vinegar", "amount": "2.5 tbsp (36g)", "category": "pantry"},
+      {"name": "granulated sugar", "amount": "3 tbsp (42g)", "category": "pantry"},
+      {"name": "soy sauce", "amount": "2 tbsp (50g)", "category": "pantry"},
+      {"name": "sriracha", "amount": "2 tbsp (33g)", "category": "pantry"},
+      {"name": "garlic", "amount": "1 clove, grated", "category": "produce"},
+      {"name": "water", "amount": "¼ cup (60ml)", "category": "pantry"},
+      {"name": "corn starch", "amount": "1 tsp (4g)", "category": "pantry"},
+      {"name": "eggs", "amount": "4, soft boiled", "category": "dairy"},
+      {"name": "avocado", "amount": "1, quartered and sliced", "category": "produce"},
+      {"name": "cucumber", "amount": "1, pappardelle", "category": "produce"},
+      {"name": "carrot", "amount": "1 large, julienned", "category": "produce"},
+      {"name": "toasted sesame oil", "amount": "½ tsp (3g)", "category": "pantry"},
+      {"name": "limes", "amount": "2 (4 tbsp juice)", "category": "produce"},
+      {"name": "green onion", "amount": "½ bunch for garnish", "category": "produce"},
+      {"name": "crushed peanuts", "amount": "¼ cup (37g)", "category": "pantry"}
+    ],
+    "directions": [
+      "Cook Rice: Wash rice thoroughly 2x. Place into a rice cooker with 3 cups water and cook until fully cooked.",
+      "Make Glaze: In a small pot, combine ¼ c. soy sauce, ¼ c. white vinegar, and ¼ c. honey. Bring to a boil over medium-high heat and reduce for one minute. In a separate bowl, combine 2 tsp. cornstarch and 2 tsp. water; whisk until dissolved. Add ¾ of slurry to the soy sauce mixture, stir, let boil for 30 seconds until thickened, and remove from heat.",
+      "Cook Chicken: Skewer chicken thighs under wooden skewers (6-8 total). Lightly grease with spray oil and season generously with salt and pepper. Preheat grill to medium-high heat or use a pan. Cook skewers for 5-10 minutes, turning every minute. Once cooked through, brush with glaze and place on high heat to caramelize.",
+      "Make Peanut Sauce: In a medium pot, add sugar, 2 tbsp soy sauce, and 2.5 tbsp white vinegar. Stir and heat to dissolve. Let cool slightly, then add sriracha, peanut butter, and grated garlic. Whisk together. If needed, add 60ml water and 4g cornstarch to adjust consistency. Store in fridge until serving.",
+      "Prepare Soft Boiled Eggs: In a pot of boiling water over medium-high heat, add eggs and boil for 6 minutes 30 seconds. Immediately remove and place in ice bath for 5 minutes. Crack shell all over, peel under running water, pat dry, and cut in half.",
+      "Prepare Toppings: Season julienned carrots with salt, lime juice, and sesame oil; toss to coat. Season avocado slices with flaky salt and lime juice.",
+      "Assemble: In a bowl, add desired amount of rice, then 1-2 chicken skewers. Add carrots, 2-3 cucumber pieces, egg halves, green onion, a generous dollop of spicy peanut sauce, crushed peanuts, and avocado. Drizzle glaze on chicken and serve."
+    ],
+    "source": "Kristina"
   }
 ]
