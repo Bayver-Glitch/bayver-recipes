@@ -10,14 +10,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initializeApp() {
     console.log('Initializing app...');
-    await loadRecipes();
-    console.log('Recipes loaded:', recipes.length);
-    loadMenuFromStorage();
-    setupEventListeners();
-    setupTabs();
-    renderFeaturedRecipe();
-    renderRecipes();
-    console.log('App initialized');
+
+    // Show loading state
+    const grid = document.getElementById('recipes-grid');
+    if (grid) {
+        grid.innerHTML = '<div class="loading-state" style="grid-column: 1/-1; text-align: center; padding: 3rem;"><div class="spinner"></div><p>Loading recipes...</p></div>';
+    }
+
+    try {
+        await loadRecipes();
+        console.log('Recipes loaded:', recipes.length);
+        loadMenuFromStorage();
+        setupEventListeners();
+        setupTabs();
+        renderFeaturedRecipe();
+        renderRecipes();
+        console.log('App initialized');
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+        if (grid) {
+            grid.innerHTML = '<div class="error-state" style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #d32f2f;"><h3>⚠️ Failed to Load</h3><p>Please refresh the page to try again.</p></div>';
+        }
+    }
 }
 
 // Load recipes from JSON
@@ -174,12 +188,17 @@ function setupEventListeners() {
     const nextMonth = document.getElementById('next-month');
     if (prevMonth) prevMonth.addEventListener('click', () => changeMonth(-1));
     if (nextMonth) nextMonth.addEventListener('click', () => changeMonth(1));
+
+    // Print menu button
+    const printMenuBtn = document.getElementById('print-menu');
+    if (printMenuBtn) printMenuBtn.addEventListener('click', printMonthlyMenu);
 }
 
 let currentPlannerDate = new Date();
 
 function changeMonth(delta) {
-    currentPlannerDate.setMonth(currentPlannerDate.getMonth() + delta);
+    // Create a new date to avoid mutation
+    currentPlannerDate = new Date(currentPlannerDate.getFullYear(), currentPlannerDate.getMonth() + delta, 1);
     renderCalendar();
 }
 
@@ -257,15 +276,15 @@ function renderRecipes() {
 
     grid.innerHTML = filtered.map(recipe => {
         const imageHtml = recipe.image
-            ? `<div class="recipe-image" style="background-image: url('${recipe.image}');"></div>`
-            : `<div class="recipe-image-placeholder">📷</div>`;
+            ? `<div class="recipe-image" style="background-image: url('${recipe.image}');" role="img" aria-label="${recipe.name}"></div>`
+            : `<div class="recipe-image-placeholder" role="img" aria-label="No image available">📷</div>`;
 
         const crockpotBadge = recipe.crockpot ? '<span class="crockpot-badge">🍲</span>' : '';
 
         return `
-        <div class="recipe-card" data-recipe-id="${recipe.id}">
-            <button class="delete-btn" data-recipe-id="${recipe.id}" title="Delete recipe">×</button>
-            ${recipe.isFavorite ? '<span class="favorite-icon">❤️</span>' : ''}
+        <div class="recipe-card" data-recipe-id="${recipe.id}" role="article">
+            <button class="delete-btn" data-recipe-id="${recipe.id}" title="Delete recipe" aria-label="Delete ${recipe.name}">×</button>
+            ${recipe.isFavorite ? '<span class="favorite-icon" aria-label="Favorite">❤️</span>' : ''}
             ${imageHtml}
             <div class="recipe-content">
                 <div class="recipe-title">${recipe.name} ${crockpotBadge}</div>
@@ -585,12 +604,39 @@ function generateGroceryList() {
         return;
     }
 
-    listContainer.innerHTML = Object.values(ingredients).map(ing => `
-        <div class="grocery-item">
-            <span>${ing.name}</span>
-            <span>${ing.totalAmount.toFixed(1)} ${ing.unit || ''}</span>
-        </div>
-    `).join('');
+    // Group ingredients by category
+    const grouped = {};
+    Object.values(ingredients).forEach(ing => {
+        const category = ing.category || 'other';
+        if (!grouped[category]) grouped[category] = [];
+        grouped[category].push(ing);
+    });
+
+    // Category display names
+    const categoryNames = {
+        'produce': '🥬 Produce',
+        'meat': '🥩 Meat & Seafood',
+        'dairy': '🥛 Dairy',
+        'pantry': '🥫 Pantry',
+        'spices': '🧂 Spices & Seasonings',
+        'canned': '🥫 Canned Goods',
+        'other': '📋 Other'
+    };
+
+    listContainer.innerHTML = Object.entries(grouped)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([category, items]) => `
+            <div class="grocery-category">
+                <h4>${categoryNames[category] || category}</h4>
+                ${items.map((ing, idx) => `
+                    <label class="grocery-item">
+                        <input type="checkbox" class="grocery-checkbox" id="grocery-${category}-${idx}">
+                        <span class="grocery-name">${ing.name}</span>
+                        <span class="grocery-amount">${ing.totalAmount > 0 ? ing.totalAmount.toFixed(1) : ''} ${ing.unit || ''}</span>
+                    </label>
+                `).join('')}
+            </div>
+        `).join('');
 }
 
 // Generate grocery list from selected day
@@ -616,22 +662,54 @@ function generateGroceryFromDay() {
     });
 
     const listContainer = document.getElementById('grocery-list');
-    listContainer.innerHTML = Object.values(ingredients).map(ing => `
-        <div class="grocery-item">
-            <span>${ing.name}</span>
-            <span>${ing.totalAmount.toFixed(1)} ${ing.unit || ''}</span>
-        </div>
-    `).join('');
+
+    // Group ingredients by category
+    const grouped = {};
+    Object.values(ingredients).forEach(ing => {
+        const category = ing.category || 'other';
+        if (!grouped[category]) grouped[category] = [];
+        grouped[category].push(ing);
+    });
+
+    // Category display names
+    const categoryNames = {
+        'produce': '🥬 Produce',
+        'meat': '🥩 Meat & Seafood',
+        'dairy': '🥛 Dairy',
+        'pantry': '🥫 Pantry',
+        'spices': '🧂 Spices & Seasonings',
+        'canned': '🥫 Canned Goods',
+        'other': '📋 Other'
+    };
+
+    listContainer.innerHTML = Object.entries(grouped)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([category, items]) => `
+            <div class="grocery-category">
+                <h4>${categoryNames[category] || category}</h4>
+                ${items.map((ing, idx) => `
+                    <label class="grocery-item">
+                        <input type="checkbox" class="grocery-checkbox" id="grocery-day-${category}-${idx}">
+                        <span class="grocery-name">${ing.name}</span>
+                        <span class="grocery-amount">${ing.totalAmount > 0 ? ing.totalAmount.toFixed(1) : ''} ${ing.unit || ''}</span>
+                    </label>
+                `).join('')}
+            </div>
+        `).join('');
 }
 
 // Clear grocery list
 function clearGroceryList() {
-    document.getElementById('grocery-list').innerHTML = '<p class="empty-state">Grocery list cleared. Add meals to generate a new list!</p>';
+    if (confirm('Are you sure you want to clear the grocery list?')) {
+        document.getElementById('grocery-list').innerHTML = '<p class="empty-state">Grocery list cleared. Add meals to generate a new list!</p>';
+    }
 }
 
 // Close all modals
 function closeModals() {
     document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+    // Return focus to body
+    document.body.focus();
 }
 
 // Save/load from localStorage
@@ -674,7 +752,7 @@ function openEditModal(recipe) {
     document.getElementById('edit-cost').value = recipe.cost_estimate || '';
 
     // Format ingredients for textarea
-    const ingText = recipe.ingredients?.map(i => `${i.amount || ''} ${i.name}`).join('\n') || '';
+    const ingText = recipe.ingredients?.map(i => `${i.amount || ''} ${i.unit || ''} ${i.name}`.trim()).join('\n') || '';
     document.getElementById('edit-ingredients').value = ingText;
 
     // Format directions for textarea
@@ -760,13 +838,35 @@ function saveRecipeEdit(recipeId) {
     recipe.servings = parseInt(document.getElementById('edit-servings').value) || recipe.servings;
     recipe.cost_estimate = parseFloat(document.getElementById('edit-cost').value) || recipe.cost_estimate;
 
-    // Parse ingredients
+    // Parse ingredients (improved to handle amount, unit, and name)
     const ingText = document.getElementById('edit-ingredients').value;
     recipe.ingredients = ingText.split('\n').filter(line => line.trim()).map(line => {
-        const parts = line.trim().split(' ');
-        const amount = parts[0];
-        const name = parts.slice(1).join(' ');
-        return { amount, name, category: 'other' };
+        const trimmed = line.trim();
+        const parts = trimmed.split(' ');
+
+        // Try to parse: amount unit name or amount name
+        let amount = '';
+        let unit = '';
+        let name = '';
+
+        // Check if first part looks like an amount (number, fraction, or mixed)
+        if (parts.length > 0 && /^[\d\/½⅓⅔¼¾⅛⅜⅝⅞]+/.test(parts[0])) {
+            amount = parts[0];
+
+            // Check if second part is a unit (common cooking units)
+            const commonUnits = ['cup', 'cups', 'tbsp', 'tsp', 'oz', 'lb', 'lbs', 'g', 'kg', 'ml', 'l', 'pinch', 'dash', 'can', 'package', 'clove', 'cloves', 'slice', 'slices', 'piece', 'pieces'];
+            if (parts.length > 1 && commonUnits.some(u => parts[1].toLowerCase().includes(u))) {
+                unit = parts[1];
+                name = parts.slice(2).join(' ');
+            } else {
+                name = parts.slice(1).join(' ');
+            }
+        } else {
+            // No amount detected, treat entire line as name
+            name = trimmed;
+        }
+
+        return { amount, unit, name, category: 'other' };
     });
 
     // Parse directions
@@ -906,10 +1006,4 @@ function printMonthlyMenu() {
     printWindow.document.close();
 }
 
-// Setup print menu button
-document.addEventListener('DOMContentLoaded', () => {
-    const printMenuBtn = document.getElementById('print-menu');
-    if (printMenuBtn) {
-        printMenuBtn.addEventListener('click', printMonthlyMenu);
-    }
-});
+// Print menu button handler is set up in setupEventListeners()

@@ -39,11 +39,11 @@
         <section class="search-section">
             <div class="search-container">
                 <div class="search-bar">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="filter-search" placeholder="Search...">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input type="text" id="filter-search" placeholder="Search recipes..." aria-label="Search recipes">
                 </div>
                 <div class="filter-dropdown">
-                    <select id="filter-meal">
+                    <select id="filter-meal" aria-label="Filter by meal type">
                         <option value="">Meals</option>
                         <option value="appetizer">Appetizers and Snacks</option>
                         <option value="bread">Bread</option>
@@ -59,7 +59,7 @@
                     </select>
                 </div>
                 <div class="filter-dropdown">
-                    <select id="filter-meat" style="display:none;">
+                    <select id="filter-meat" style="display:none;" aria-label="Filter by main ingredient">
                         <option value="">All Meats</option>
                         <option value="beef">Beef</option>
                         <option value="chicken">Chicken</option>
@@ -69,7 +69,7 @@
                     </select>
                 </div>
                 <div class="filter-dropdown">
-                    <select id="filter-cuisine">
+                    <select id="filter-cuisine" aria-label="Filter by cuisine">
                         <option value="">Cuisines</option>
                         <option value="american">American</option>
                         <option value="asian">Asian</option>
@@ -78,7 +78,13 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <button id="clear-filters" class="btn-text">Clear</button>
+                <div class="filter-dropdown">
+                    <select id="filter-favorites" aria-label="Filter by favorites">
+                        <option value="">All Recipes</option>
+                        <option value="true">⭐ Favorites Only</option>
+                    </select>
+                </div>
+                <button id="clear-filters" class="btn-text" aria-label="Clear all filters">Clear</button>
             </div>
         </section>
 
@@ -135,10 +141,10 @@
     </div>
 
     <!-- Recipe Detail Modal -->
-    <div id="recipe-modal" class="modal">
+    <div id="recipe-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
         <div class="modal-content">
-            <button class="close-modal">×</button>
-            <button id="modal-favorite" class="favorite-btn-modal">🤍</button>
+            <button class="close-modal" aria-label="Close modal">×</button>
+            <button id="modal-favorite" class="favorite-btn-modal" aria-label="Toggle favorite">🤍</button>
             <div class="recipe-detail">
                 <div class="recipe-detail-image" id="modal-image">
                     <span>📷</span>
@@ -177,9 +183,9 @@
     </div>
 
     <!-- Edit Recipe Modal -->
-    <div id="edit-modal" class="modal">
+    <div id="edit-modal" class="modal" role="dialog" aria-labelledby="edit-modal-title" aria-modal="true">
         <div class="modal-content modal-large">
-            <button class="close-modal">×</button>
+            <button class="close-modal" aria-label="Close modal">×</button>
             <h2>Edit Recipe</h2>
             <div class="edit-form">
                 <div class="form-group">
@@ -232,9 +238,9 @@
     </div>
 
     <!-- Planner Modal -->
-    <div id="planner-modal" class="modal">
+    <div id="planner-modal" class="modal" role="dialog" aria-labelledby="planner-modal-title" aria-modal="true">
         <div class="modal-content modal-small">
-            <button class="close-modal">×</button>
+            <button class="close-modal" aria-label="Close modal">×</button>
             <h3>Add to Meal Plan</h3>
             <div class="planner-form">
                 <div class="form-group">
