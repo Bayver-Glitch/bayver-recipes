@@ -6,7 +6,8 @@ interface Recipe {
   id: string;
   title: string;
   category: string;
-  servings: number;
+  servings?: number;
+  image_url?: string;
 }
 
 interface StoreItem {

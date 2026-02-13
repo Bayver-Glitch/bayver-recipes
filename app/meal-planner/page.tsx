@@ -17,7 +17,6 @@ interface MealPlan {
     title: string;
     category: string;
     image_url?: string;
-    servings?: number;
   };
   store_item?: {
     id: string;
