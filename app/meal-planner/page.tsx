@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AddMealModal from '../components/AddMealModal';
+import EditMealModal from '../components/EditMealModal';
 
 interface MealPlan {
   id: string;
@@ -40,8 +41,12 @@ export default function MealPlannerPage() {
   const [mealPlans, setMealPlans] = useState<MealPlan[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [selectedMeal, setSelectedMeal] = useState<MealPlan | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedMealType, setSelectedMealType] = useState<string>('dinner');
+  const [draggedMeal, setDraggedMeal] = useState<MealPlan | null>(null);
+  const [dragOverDate, setDragOverDate] = useState<string | null>(null);
 
   // Current month state
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -94,6 +99,96 @@ export default function MealPlannerPage() {
     setShowModal(false);
     if (saved) {
       fetchMealPlans();
+    }
+  };
+
+  const handleEditMeal = async (meal: MealPlan) => {
+    // Fetch full meal details including sides
+    try {
+      const response = await fetch(`/api/meal-plans/${meal.id}`);
+      if (!response.ok) throw new Error('Failed to fetch meal details');
+      
+      const fullMeal = await response.json();
+      setSelectedMeal(fullMeal);
+      setShowEditModal(true);
+    } catch (error) {
+      console.error('Error fetching meal details:', error);
+      alert('Failed to load meal details');
+    }
+  };
+
+  const handleEditModalClose = (saved: boolean) => {
+    setShowEditModal(false);
+    setSelectedMeal(null);
+    if (saved) {
+      fetchMealPlans();
+    }
+  };
+
+  // Drag and Drop Handlers
+  const handleDragStart = (e: React.DragEvent, meal: MealPlan) => {
+    setDraggedMeal(meal);
+    e.dataTransfer.effectAllowed = 'move';
+    // Add a slight opacity to the dragged element
+    (e.target as HTMLElement).style.opacity = '0.5';
+  };
+
+  const handleDragEnd = (e: React.DragEvent) => {
+    setDraggedMeal(null);
+    setDragOverDate(null);
+    (e.target as HTMLElement).style.opacity = '1';
+  };
+
+  const handleDragOver = (e: React.DragEvent, date: string) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    setDragOverDate(date);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverDate(null);
+  };
+
+  const handleDrop = async (e: React.DragEvent, targetDate: string) => {
+    e.preventDefault();
+    setDragOverDate(null);
+
+    if (!draggedMeal || draggedMeal.meal_date === targetDate) {
+      setDraggedMeal(null);
+      return; // Same date, no update needed
+    }
+
+    // Update the meal plan with the new date
+    try {
+      const response = await fetch(`/api/meal-plans/${draggedMeal.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          meal_date: targetDate,
+          meal_type: draggedMeal.meal_type,
+          recipe_id: draggedMeal.recipe?.id || null,
+          store_item_id: draggedMeal.store_item?.id || null,
+          servings: draggedMeal.servings,
+          notes: draggedMeal.notes,
+          sides: draggedMeal.sides?.map(side => ({
+            recipe_id: side.recipe?.id || null,
+            store_item_id: side.store_item?.id || null,
+            servings: draggedMeal.servings,
+          })) || [],
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to move meal');
+
+      // Refresh the meal plans
+      fetchMealPlans();
+      setDraggedMeal(null);
+    } catch (error) {
+      console.error('Error moving meal:', error);
+      alert('Failed to move meal');
+      setDraggedMeal(null);
     }
   };
 
@@ -229,8 +324,13 @@ export default function MealPlannerPage() {
               return (
                 <div
                   key={date}
+                  onDragOver={(e) => handleDragOver(e, date)}
+                  onDragLeave={handleDragLeave}
+                  onDrop={(e) => handleDrop(e, date)}
                   className={`min-h-32 p-2 hover:bg-gray-50 transition-colors ${
                     today ? 'bg-blue-50' : ''
+                  } ${
+                    dragOverDate === date ? 'bg-green-100 ring-2 ring-green-400' : ''
                   }`}
                 >
                   {/* Day Number */}
@@ -258,7 +358,12 @@ export default function MealPlannerPage() {
                     {meals.slice(0, 3).map((meal) => (
                       <div
                         key={meal.id}
-                        className="bg-blue-100 border border-blue-200 rounded px-2 py-1 text-xs group relative"
+                        draggable
+                        onDragStart={(e) => handleDragStart(e, meal)}
+                        onDragEnd={handleDragEnd}
+                        onClick={() => handleEditMeal(meal)}
+                        className="bg-blue-100 border border-blue-200 rounded px-2 py-1 text-xs group relative cursor-move hover:bg-blue-200 transition-colors"
+                        title="Click to edit, drag to move"
                       >
                         <div className="font-medium text-gray-900 truncate">
                           {meal.meal_type === 'breakfast' && '🍳 '}
@@ -267,12 +372,18 @@ export default function MealPlannerPage() {
                           {meal.meal_type === 'snack' && '🍪 '}
                           {meal.recipe?.title || meal.store_item?.name}
                         </div>
+                        {meal.sides && meal.sides.length > 0 && (
+                          <div className="text-gray-600 text-[10px] truncate">
+                            + {meal.sides.length} side{meal.sides.length !== 1 ? 's' : ''}
+                          </div>
+                        )}
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleDelete(meal.id);
                           }}
                           className="absolute top-0 right-0 text-red-600 hover:text-red-800 px-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                          title="Delete meal"
                         >
                           ×
                         </button>
@@ -297,6 +408,14 @@ export default function MealPlannerPage() {
           date={selectedDate}
           mealType={selectedMealType}
           onClose={handleModalClose}
+        />
+      )}
+
+      {/* Edit Modal */}
+      {showEditModal && selectedMeal && (
+        <EditMealModal
+          mealPlan={selectedMeal}
+          onClose={handleEditModalClose}
         />
       )}
     </div>
