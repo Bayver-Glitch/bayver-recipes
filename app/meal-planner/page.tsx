@@ -36,44 +36,27 @@ interface MealPlan {
   }>;
 }
 
-const mealTypes = ['breakfast', 'lunch', 'dinner', 'snack'];
-
 export default function MealPlannerPage() {
   const [mealPlans, setMealPlans] = useState<MealPlan[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<string>(
-    new Date().toISOString().split('T')[0]
-  );
+  const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedMealType, setSelectedMealType] = useState<string>('dinner');
 
-  // Get current week range
-  const getWeekRange = () => {
-    const today = new Date();
-    const startOfWeek = new Date(today);
-    startOfWeek.setDate(today.getDate() - today.getDay()); // Sunday
-
-    const endOfWeek = new Date(startOfWeek);
-    endOfWeek.setDate(startOfWeek.getDate() + 6); // Saturday
-
-    return {
-      start: startOfWeek.toISOString().split('T')[0],
-      end: endOfWeek.toISOString().split('T')[0],
-    };
-  };
-
-  const [weekRange, setWeekRange] = useState(getWeekRange());
+  // Current month state
+  const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
     fetchMealPlans();
-  }, [weekRange]);
+  }, [currentDate]);
 
   const fetchMealPlans = async () => {
     setLoading(true);
     try {
+      const monthRange = getMonthRange(currentDate);
       const params = new URLSearchParams({
-        start_date: weekRange.start,
-        end_date: weekRange.end,
+        start_date: monthRange.start,
+        end_date: monthRange.end,
       });
 
       const response = await fetch(`/api/meal-plans?${params.toString()}`);
@@ -88,9 +71,22 @@ export default function MealPlannerPage() {
     }
   };
 
-  const handleAddMeal = (date: string, mealType: string) => {
+  const getMonthRange = (date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    return {
+      start: firstDay.toISOString().split('T')[0],
+      end: lastDay.toISOString().split('T')[0],
+    };
+  };
+
+  const handleAddMeal = (date: string) => {
     setSelectedDate(date);
-    setSelectedMealType(mealType);
+    setSelectedMealType('dinner');
     setShowModal(true);
   };
 
@@ -118,139 +114,180 @@ export default function MealPlannerPage() {
     }
   };
 
-  const getMealsForDate = (date: string, mealType: string) => {
-    return mealPlans.filter(
-      (mp) => mp.meal_date === date && mp.meal_type === mealType
-    );
+  const getMealsForDate = (date: string) => {
+    return mealPlans.filter((mp) => mp.meal_date === date);
   };
 
-  // Generate array of dates for current week
-  const getWeekDates = () => {
-    const dates = [];
-    const start = new Date(weekRange.start);
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(start);
-      date.setDate(start.getDate() + i);
-      dates.push(date.toISOString().split('T')[0]);
+  const navigateMonth = (direction: 'prev' | 'next') => {
+    const newDate = new Date(currentDate);
+    if (direction === 'prev') {
+      newDate.setMonth(newDate.getMonth() - 1);
+    } else {
+      newDate.setMonth(newDate.getMonth() + 1);
     }
-    return dates;
+    setCurrentDate(newDate);
   };
 
-  const weekDates = getWeekDates();
-
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  const goToToday = () => {
+    setCurrentDate(new Date());
   };
 
-  const navigateWeek = (direction: 'prev' | 'next') => {
-    const start = new Date(weekRange.start);
-    const offset = direction === 'prev' ? -7 : 7;
-    start.setDate(start.getDate() + offset);
+  // Generate calendar grid
+  const getCalendarDays = () => {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
 
-    const end = new Date(start);
-    end.setDate(start.getDate() + 6);
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startingDayOfWeek = firstDay.getDay(); // 0 = Sunday
+    const daysInMonth = lastDay.getDate();
 
-    setWeekRange({
-      start: start.toISOString().split('T')[0],
-      end: end.toISOString().split('T')[0],
-    });
+    const days = [];
+
+    // Add empty cells for days before month starts
+    for (let i = 0; i < startingDayOfWeek; i++) {
+      days.push(null);
+    }
+
+    // Add all days in month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      days.push(date.toISOString().split('T')[0]);
+    }
+
+    return days;
   };
+
+  const calendarDays = getCalendarDays();
+
+  const isToday = (dateStr: string) => {
+    const today = new Date().toISOString().split('T')[0];
+    return dateStr === today;
+  };
+
+  const monthName = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Meal Planner</h1>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <button
-            onClick={() => navigateWeek('prev')}
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+            onClick={goToToday}
+            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            ← Previous Week
+            Today
           </button>
           <button
-            onClick={() => navigateWeek('next')}
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+            onClick={() => navigateMonth('prev')}
+            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            Next Week →
+            ← Previous
+          </button>
+          <button
+            onClick={() => navigateMonth('next')}
+            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Next →
           </button>
         </div>
       </div>
 
-      {/* Week View */}
+      {/* Month Title */}
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-semibold text-gray-900">{monthName}</h2>
+      </div>
+
+      {/* Calendar */}
       {loading ? (
-        <div className="flex justify-center items-center h-64">
+        <div className="flex justify-center items-center h-96">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow overflow-x-auto">
-          <table className="min-w-full">
-            <thead className="bg-gray-50 border-b-2 border-gray-200">
-              <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 w-32">
-                  Meal
-                </th>
-                {weekDates.map((date) => (
-                  <th
-                    key={date}
-                    className="px-4 py-3 text-center text-sm font-semibold text-gray-700 min-w-40"
-                  >
-                    {formatDate(date)}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {mealTypes.map((mealType) => (
-                <tr key={mealType} className="hover:bg-gray-50">
-                  <td className="px-4 py-4 text-sm font-medium text-gray-900 capitalize">
-                    {mealType}
-                  </td>
-                  {weekDates.map((date) => {
-                    const meals = getMealsForDate(date, mealType);
-                    return (
-                      <td key={date} className="px-4 py-4 align-top">
-                        <div className="space-y-2">
-                          {meals.map((meal) => (
-                            <div
-                              key={meal.id}
-                              className="bg-blue-50 border border-blue-200 rounded p-2 text-sm"
-                            >
-                              <div className="font-medium text-gray-900">
-                                {meal.recipe?.title || meal.store_item?.name}
-                                {meal.store_item?.brand && ` (${meal.store_item.brand})`}
-                              </div>
-                              {meal.sides.length > 0 && (
-                                <div className="text-xs text-gray-600 mt-1">
-                                  + {meal.sides.length} side{meal.sides.length > 1 ? 's' : ''}
-                                </div>
-                              )}
-                              <div className="text-xs text-gray-500 mt-1">
-                                Serves {meal.servings}
-                              </div>
-                              <button
-                                onClick={() => handleDelete(meal.id)}
-                                className="text-xs text-red-600 hover:text-red-800 mt-1"
-                              >
-                                Remove
-                              </button>
-                            </div>
-                          ))}
-                          <button
-                            onClick={() => handleAddMeal(date, mealType)}
-                            className="w-full px-3 py-2 text-sm text-blue-600 border border-blue-300 border-dashed rounded hover:bg-blue-50 transition-colors"
-                          >
-                            + Add Meal
-                          </button>
+        <div className="bg-white rounded-lg shadow overflow-hidden">
+          {/* Day Headers */}
+          <div className="grid grid-cols-7 bg-gray-50 border-b border-gray-200">
+            {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
+              <div key={day} className="px-2 py-3 text-center text-sm font-semibold text-gray-700">
+                {day}
+              </div>
+            ))}
+          </div>
+
+          {/* Calendar Grid */}
+          <div className="grid grid-cols-7 divide-x divide-y divide-gray-200">
+            {calendarDays.map((date, index) => {
+              if (!date) {
+                return <div key={`empty-${index}`} className="min-h-32 bg-gray-50"></div>;
+              }
+
+              const meals = getMealsForDate(date);
+              const today = isToday(date);
+              const dayNumber = new Date(date).getDate();
+
+              return (
+                <div
+                  key={date}
+                  className={`min-h-32 p-2 hover:bg-gray-50 transition-colors ${
+                    today ? 'bg-blue-50' : ''
+                  }`}
+                >
+                  {/* Day Number */}
+                  <div className="flex justify-between items-start mb-2">
+                    <span
+                      className={`text-sm font-semibold ${
+                        today
+                          ? 'bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center'
+                          : 'text-gray-700'
+                      }`}
+                    >
+                      {dayNumber}
+                    </span>
+                    <button
+                      onClick={() => handleAddMeal(date)}
+                      className="text-blue-600 hover:text-blue-800 text-lg"
+                      title="Add meal"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Meals */}
+                  <div className="space-y-1">
+                    {meals.slice(0, 3).map((meal) => (
+                      <div
+                        key={meal.id}
+                        className="bg-blue-100 border border-blue-200 rounded px-2 py-1 text-xs group relative"
+                      >
+                        <div className="font-medium text-gray-900 truncate">
+                          {meal.meal_type === 'breakfast' && '🍳 '}
+                          {meal.meal_type === 'lunch' && '🥗 '}
+                          {meal.meal_type === 'dinner' && '🍽️ '}
+                          {meal.meal_type === 'snack' && '🍪 '}
+                          {meal.recipe?.title || meal.store_item?.name}
                         </div>
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(meal.id);
+                          }}
+                          className="absolute top-0 right-0 text-red-600 hover:text-red-800 px-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                    {meals.length > 3 && (
+                      <div className="text-xs text-gray-500 text-center">
+                        +{meals.length - 3} more
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
