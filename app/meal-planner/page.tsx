@@ -8,13 +8,16 @@ interface MealPlan {
   id: string;
   meal_date: string;
   meal_type: string;
+  recipe_id?: string;
+  store_item_id?: string;
   servings: number;
   notes?: string;
   recipe?: {
     id: string;
     title: string;
     category: string;
-    image_url: string;
+    image_url?: string;
+    servings?: number;
   };
   store_item?: {
     id: string;
@@ -22,8 +25,9 @@ interface MealPlan {
     brand?: string;
     category: string;
   };
-  sides: Array<{
+  sides?: Array<{
     id: string;
+    servings?: number;
     recipe?: {
       id: string;
       title: string;
