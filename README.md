@@ -1,6 +1,6 @@
 # Bayver Family Recipe Collection
 
-A web-based recipe manager and meal planner.
+A web-based recipe manager and meal planner with drag & drop functionality.
 
 ## Features
 - Recipe browser with filters
